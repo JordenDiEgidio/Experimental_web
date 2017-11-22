@@ -1,7 +1,8 @@
 import React from 'react';
+import Webcam from '../components/webcam/webcam.jsx';
 
 const Home = () => (
-  <p></p>
+  <Webcam />
 );
 
 export default Home;
