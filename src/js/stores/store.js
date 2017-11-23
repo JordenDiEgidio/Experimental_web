@@ -6,7 +6,7 @@ class Store {
   name = `GIF generator`
 
   @observable
-  storeImgSource = ``;
+  storeImgSource = `../assets/images/Placeholder.jpg`;
 
   @action
   setStoreImgSource = src => {
