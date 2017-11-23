@@ -1,9 +1,17 @@
-import {observable} from 'mobx';
+import {observable, action} from 'mobx';
 
 class Store {
 
   @observable
   name = `GIF generator`
+
+  @observable
+  storeImgSource = ``;
+
+  @action
+  setStoreImgSource = src => {
+    this.storeImgSource = src;
+  }
 
 }
 
