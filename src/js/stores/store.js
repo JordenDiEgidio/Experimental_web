@@ -1,4 +1,5 @@
 import {observable, action} from 'mobx';
+import visionAPI from '../lib/api/vision';
 
 class Store {
 
@@ -11,6 +12,12 @@ class Store {
   @action
   setStoreImgSource = src => {
     this.storeImgSource = src;
+  }
+
+  @action
+  test = () => {
+    visionAPI.read()
+      .then(data => console.log(data));
   }
 
 }

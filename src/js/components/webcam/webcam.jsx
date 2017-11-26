@@ -3,9 +3,11 @@ import Webcam from 'react-webcam';
 import {string, func} from "prop-types";
 import {observer, inject} from "mobx-react";
 
+
 const webcamAdd = ({storeImgSource, setStoreImgSource}) => {
 
   this.imageSrc;
+
 
   this.setRef = webcam => {
     this.webcam = webcam;
