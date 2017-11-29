@@ -4,7 +4,7 @@ import {string, func} from "prop-types";
 import {observer, inject} from "mobx-react";
 
 
-const webcamAdd = ({storeImgSource, setStoreImgSource}) => {
+const webcamAdd = ({storeImgSource, setStoreImgSource, test}) => {
 
   this.imageSrc;
 
@@ -20,9 +20,11 @@ const webcamAdd = ({storeImgSource, setStoreImgSource}) => {
 
   this.handleScreenshot = () => {
     const imageSrc = this.webcam.getScreenshot();
-    // this.imageSrc = imageSrc;
-    console.log(imageSrc);
+    //remove datatype and base64 from string to get only the content we need
+    const slicedImageSrc = imageSrc.slice(23, imageSrc.length);
+    //console.log(slicedImageSrc);
     setStoreImgSource(imageSrc);
+    test(slicedImageSrc);
 
   };
 
@@ -46,12 +48,14 @@ const webcamAdd = ({storeImgSource, setStoreImgSource}) => {
 
 webcamAdd.propTypes = {
   storeImgSource: string.isRequired,
-  setStoreImgSource: func.isRequired
+  setStoreImgSource: func.isRequired,
+  test: func.isRequired
 };
 
 export default inject(({store}) => {
   return {
     storeImgSource: store.storeImgSource,
+    test: store.test,
     setStoreImgSource: store.setStoreImgSource
   };
 })(observer(webcamAdd));

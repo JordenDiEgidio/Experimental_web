@@ -15,8 +15,8 @@ class Store {
   }
 
   @action
-  test = () => {
-    visionAPI.read()
+  test = image => {
+    visionAPI.read(image)
       .then(data => console.log(data));
   }
 
