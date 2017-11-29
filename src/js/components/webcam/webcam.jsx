@@ -21,8 +21,9 @@ const webcamAdd = ({storeImgSource, setStoreImgSource}) => {
   this.handleScreenshot = () => {
     const imageSrc = this.webcam.getScreenshot();
     // this.imageSrc = imageSrc;
-
+    console.log(imageSrc);
     setStoreImgSource(imageSrc);
+
   };
 
   return (
