@@ -1,10 +1,10 @@
 import React from 'react';
 import Webcam from 'react-webcam';
-import {string, func} from "prop-types";
+import {func} from "prop-types";
 import {observer, inject} from "mobx-react";
 
-
-const webcamAdd = ({storeImgSource, setStoreImgSource, test}) => {
+//test
+const webcamAdd = ({setCanvasSrc, drawImage, screenshotTakenswitch}) => {
 
   this.imageSrc;
 
@@ -15,17 +15,15 @@ const webcamAdd = ({storeImgSource, setStoreImgSource, test}) => {
 
   this.setImage = imageSrc => {
     this.imageSrc = imageSrc;
-    console.log(this.imageSrc);
   };
 
   this.handleScreenshot = () => {
+    screenshotTakenswitch();
     const imageSrc = this.webcam.getScreenshot();
     //remove datatype and base64 from string to get only the content we need
-    const slicedImageSrc = imageSrc.slice(23, imageSrc.length);
-    //console.log(slicedImageSrc);
-    setStoreImgSource(imageSrc);
-    test(slicedImageSrc);
-
+    // const slicedImageSrc = imageSrc.slice(23, imageSrc.length);
+    setCanvasSrc(imageSrc);
+    drawImage();
   };
 
   return (
@@ -38,24 +36,21 @@ const webcamAdd = ({storeImgSource, setStoreImgSource, test}) => {
         width={700}
       />
       <button onClick={this.handleScreenshot}>take screenshot</button>
-
-      <img src={storeImgSource} ref={this.setImage} height='100' width='150' />
-
     </div>
   );
 
 };
 
 webcamAdd.propTypes = {
-  storeImgSource: string.isRequired,
-  setStoreImgSource: func.isRequired,
-  test: func.isRequired
+  setCanvasSrc: func.isRequired,
+  drawImage: func.isRequired,
+  screenshotTakenswitch: func.isRequired
 };
 
 export default inject(({store}) => {
   return {
-    storeImgSource: store.storeImgSource,
-    test: store.test,
-    setStoreImgSource: store.setStoreImgSource
+    drawImage: store.drawImage,
+    screenshotTakenswitch: store.screenshotTakenswitch,
+    setCanvasSrc: store.setCanvasSrc
   };
 })(observer(webcamAdd));

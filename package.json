@@ -59,5 +59,7 @@
     "webpack-config-utils": "^2.3.0",
     "webpack-dev-server": "^2.4.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gl-react": "^2.3.1"
+  }
 }

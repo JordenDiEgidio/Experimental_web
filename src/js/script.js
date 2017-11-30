@@ -21,7 +21,6 @@ const init = () => {
     </Provider>,
     document.querySelector(`.react-mount`)
   );
-
 };
 
 init();
