@@ -1,10 +1,10 @@
 import React from 'react';
 import Webcam from 'react-webcam';
-import {func} from "prop-types";
+import {func, bool} from "prop-types";
 import {observer, inject} from "mobx-react";
 
 //test
-const webcamAdd = ({setCanvasSrc, drawImage, screenshotTakenswitch}) => {
+const webcamAdd = ({setCanvasSrc, drawImage, screenshotTakenswitch, screenshotTaken}) => {
 
   this.imageSrc;
 
@@ -26,31 +26,55 @@ const webcamAdd = ({setCanvasSrc, drawImage, screenshotTakenswitch}) => {
     drawImage();
   };
 
-  return (
-    <div>
-      <Webcam
-        audio={false}
-        height={700}
-        screenshotFormat='image/webp'
-        ref={this.setRef}
-        width={700}
-      />
-      <button onClick={this.handleScreenshot}>take screenshot</button>
-    </div>
-  );
+  if (screenshotTaken) {
+    return (
+      <p></p>
+    );
+  } else {
+    return (
+      <div>
+        <button onClick={this.handleScreenshot}>take screenshot</button>
+        <Webcam
+          audio={false}
+          height={700}
+          screenshotFormat='image/webp'
+          ref={this.setRef}
+          width={700}
+        />
+      </div>
+    );
+  }
+  // return (
+  //   <div>
+  //
+  //     <Webcam
+  //       audio={false}
+  //       height={700}
+  //       screenshotFormat='image/webp'
+  //       ref={this.setRef}
+  //       width={700}
+  //     />
+  //
+  //     <button onClick={this.handleScreenshot}>take screenshot</button>
+  //     <h1>{screenshotTaken}</h1>
+  //   </div>
+  // );
 
 };
 
 webcamAdd.propTypes = {
   setCanvasSrc: func.isRequired,
   drawImage: func.isRequired,
-  screenshotTakenswitch: func.isRequired
+  screenshotTakenswitch: func.isRequired,
+  screenshotTaken: bool.isRequired
 };
 
 export default inject(({store}) => {
   return {
     drawImage: store.drawImage,
     screenshotTakenswitch: store.screenshotTakenswitch,
-    setCanvasSrc: store.setCanvasSrc
+    setCanvasSrc: store.setCanvasSrc,
+    screenshotTaken: store.screenshotTaken
+
   };
 })(observer(webcamAdd));

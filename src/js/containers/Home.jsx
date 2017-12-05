@@ -8,6 +8,7 @@ const Home = ({screenshotTaken}) => {
 
   console.log(screenshotTaken);
 
+
   return (
     <div>
       <Webcam />
