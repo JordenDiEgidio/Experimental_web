@@ -20,7 +20,8 @@ const canvasAdd = ({setCanvas, drawImage, screenshotTaken, filter}) => {
     require([
       `../../lib/effects/seriously`,
       `../../lib/effects/seriously.sepia`,
-      `../../lib/effects/seriously.directionblur`
+      `../../lib/effects/seriously.directionblur`,
+      `../../lib/effects/seriously.emboss`,
     ], seriouslyCallback);
   };
 

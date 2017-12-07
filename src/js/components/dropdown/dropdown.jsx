@@ -25,6 +25,7 @@ const dropdown = ({screenshotTaken, setFilter}) => {
         <select ref={this.handleFilters} onChange={this.handleChange}>
           <option value='sepia'>Sepia</option>
           <option value='directionblur'>Directional blur</option>
+          <option value='emboss'>emboss</option>
         </select>
       </form>
     );
