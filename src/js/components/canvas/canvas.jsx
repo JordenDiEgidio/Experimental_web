@@ -4,9 +4,27 @@ import {observer, inject} from "mobx-react";
 
 const canvasAdd = ({setCanvas, drawImage, screenshotTaken}) => {
 
+  const seriouslyCallback = Seriously => {
+    const seriously = new Seriously();
+    const target = seriously.target(`#canvas2`);
+    const sepiafilter = seriously.effect(`sepia`);
+    const src = seriously.source(`#canvas`);
+    sepiafilter.source = src;
+    target.source = sepiafilter;
+    seriously.go();
+  };
+
+  this.filters = () => {
+    require([
+      `../../lib/effects/seriously`,
+      `../../lib/effects/seriously.sepia`
+    ], seriouslyCallback);
+  };
+
   if (screenshotTaken === true) {
     console.log(`draw`);
     drawImage();
+    this.filters();
   }
 
   this.handledrawImage = e => {
@@ -16,7 +34,10 @@ const canvasAdd = ({setCanvas, drawImage, screenshotTaken}) => {
   setCanvas();
 
   return (
-    <canvas id='canvas' width='700' height='500' ref={this.handledrawImage}></canvas>
+    <div>
+      <canvas id='canvas' className='canvas' width='700' height='500' ref={this.handledrawImage}></canvas>
+      <canvas id='canvas2' width='700' height='500'></canvas>
+    </div>
   );
 
 };

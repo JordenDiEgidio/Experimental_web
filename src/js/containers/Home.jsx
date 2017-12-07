@@ -15,22 +15,6 @@ const Home = ({screenshotTaken}) => {
       <Canvas />
     </div>
   );
-  // console.log(screenshotTaken);
-  //
-  // if (screenshotTaken === false) {
-  //   return (
-  //     <div>
-  //       <Webcam />;
-  //       <Canvas />
-  //     </div>
-  //   );
-  // } else {
-  //   return (
-  //     <div>
-  //       <Canvas />
-  //     </div>
-  //   );
-  // }
 };
 
 Home.propTypes = {

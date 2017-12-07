@@ -18,3 +18,7 @@ header {
 h1 {
   font-size: 3rem;
 }
+
+.canvas {
+  display: none;
+}
