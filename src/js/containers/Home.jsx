@@ -2,17 +2,16 @@ import React from 'react';
 import {inject, observer} from 'mobx-react';
 import Webcam from '../components/webcam/webcam.jsx';
 import Canvas from '../components/canvas/canvas.jsx';
+import Dropdown from '../components/Dropdown/Dropdown.jsx';
 import {bool} from 'prop-types';
 
-const Home = ({screenshotTaken}) => {
-
-  console.log(screenshotTaken);
-
+const Home = () => {
 
   return (
     <div>
       <Webcam />
       <Canvas />
+      <Dropdown />
     </div>
   );
 };

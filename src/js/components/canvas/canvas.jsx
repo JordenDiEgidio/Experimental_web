@@ -1,13 +1,15 @@
 import React from 'react';
-import {func, bool} from "prop-types";
+import {func, bool, string} from "prop-types";
 import {observer, inject} from "mobx-react";
 
-const canvasAdd = ({setCanvas, drawImage, screenshotTaken}) => {
+const canvasAdd = ({setCanvas, drawImage, screenshotTaken, filter}) => {
 
   const seriouslyCallback = Seriously => {
+    console.log(filter);
     const seriously = new Seriously();
     const target = seriously.target(`#canvas2`);
-    const sepiafilter = seriously.effect(`sepia`);
+    const sepiafilter = seriously.effect(filter);
+    //const sepiafilter = seriously.effect(`sepia`);
     const src = seriously.source(`#canvas`);
     sepiafilter.source = src;
     target.source = sepiafilter;
@@ -17,7 +19,8 @@ const canvasAdd = ({setCanvas, drawImage, screenshotTaken}) => {
   this.filters = () => {
     require([
       `../../lib/effects/seriously`,
-      `../../lib/effects/seriously.sepia`
+      `../../lib/effects/seriously.sepia`,
+      `../../lib/effects/seriously.directionblur`
     ], seriouslyCallback);
   };
 
@@ -45,13 +48,15 @@ const canvasAdd = ({setCanvas, drawImage, screenshotTaken}) => {
 canvasAdd.propTypes = {
   setCanvas: func.isRequired,
   drawImage: func.isRequired,
-  screenshotTaken: bool.isRequired
+  screenshotTaken: bool.isRequired,
+  filter: string.isRequired
 };
 
 export default inject(({store}) => {
   return {
     setCanvas: store.setCanvas,
     drawImage: store.drawImage,
-    screenshotTaken: store.screenshotTaken
+    screenshotTaken: store.screenshotTaken,
+    filter: store.filter
   };
 })(observer(canvasAdd));

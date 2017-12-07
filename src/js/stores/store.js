@@ -15,6 +15,15 @@ class Store {
   @observable
   canvas = ``;
 
+  @observable
+  filter = `sepia`;
+
+  @action
+  setFilter = selection => {
+    this.filter = selection;
+    console.log(this.filter);
+  }
+
   @action
   screenshotTakenswitch = () => {
     this.screenshotTaken = !this.screenshotTaken;
