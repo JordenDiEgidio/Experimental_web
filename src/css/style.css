@@ -59,3 +59,7 @@ h1 {
   justify-content: space-around;
   width: 500px;
 }
+
+.canvas {
+  display: none;
+}

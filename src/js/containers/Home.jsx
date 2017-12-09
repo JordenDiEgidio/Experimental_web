@@ -3,37 +3,19 @@ import {inject, observer} from 'mobx-react';
 import Webcam from '../components/webcam/webcam.jsx';
 import Canvas from '../components/canvas/canvas.jsx';
 import Textfilter from '../components/textFilter/textFilter.jsx';
-
+import Dropdown from '../components/Dropdown/Dropdown.jsx';
 import {bool} from 'prop-types';
 
-const Home = ({screenshotTaken}) => {
-
-  console.log(screenshotTaken);
-
+const Home = () => {
 
   return (
     <div>
       <Textfilter />
       <Webcam />
       <Canvas />
+      <Dropdown />
     </div>
   );
-  // console.log(screenshotTaken);
-  //
-  // if (screenshotTaken === false) {
-  //   return (
-  //     <div>
-  //       <Webcam />;
-  //       <Canvas />
-  //     </div>
-  //   );
-  // } else {
-  //   return (
-  //     <div>
-  //       <Canvas />
-  //     </div>
-  //   );
-  // }
 };
 
 Home.propTypes = {
