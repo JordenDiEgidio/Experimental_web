@@ -1,6 +1,10 @@
 @import 'reset';
 @import 'vars';
 
+/* stylelint-disable */
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+/* stylelint-enable */
+
 html {
   background-color: var(--bg-color);
 }
@@ -17,4 +21,41 @@ header {
 
 h1 {
   font-size: 3rem;
+}
+
+.text-effect {
+  color: red;
+  font-family: Bungee, cursive;
+  font-size: 2rem;
+}
+
+.color-group {
+  display: flex;
+}
+
+.text-color-red {
+  background-color: red;
+  height: 20px;
+  margin-right: 20px;
+  width: 20px;
+}
+
+.text-color-blue {
+  background-color: blue;
+  height: 20px;
+  margin-right: 20px;
+  width: 20px;
+}
+
+.text-color-green {
+  background-color: green;
+  height: 20px;
+  margin-right: 20px;
+  width: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
 }

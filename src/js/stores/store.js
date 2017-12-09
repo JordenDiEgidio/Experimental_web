@@ -7,6 +7,9 @@ class Store {
   name = `GIF generator`
 
   @observable
+  textColor = `#FF0000`
+
+  @observable
   screenshotTaken = false;
 
   @observable
@@ -43,6 +46,8 @@ class Store {
     img.onload = function() {
       console.log(`load`);
       ctx.drawImage(img, 0, 0);
+      // ctx.font = `48px bold`;
+      // ctx.fillText(`I'm very emotional`, 10, 50);
     };
     img.src = this.canvasSrc;
   }

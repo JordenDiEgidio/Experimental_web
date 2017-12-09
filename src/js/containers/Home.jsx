@@ -2,6 +2,8 @@ import React from 'react';
 import {inject, observer} from 'mobx-react';
 import Webcam from '../components/webcam/webcam.jsx';
 import Canvas from '../components/canvas/canvas.jsx';
+import Textfilter from '../components/textFilter/textFilter.jsx';
+
 import {bool} from 'prop-types';
 
 const Home = ({screenshotTaken}) => {
@@ -11,6 +13,7 @@ const Home = ({screenshotTaken}) => {
 
   return (
     <div>
+      <Textfilter />
       <Webcam />
       <Canvas />
     </div>
