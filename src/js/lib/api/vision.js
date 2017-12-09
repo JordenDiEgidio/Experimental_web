@@ -3,8 +3,8 @@
 
 export default {
   read: storeImgSource => {
-    // const url = `https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBc2v6Bg6wnZJSxMGI3_rdJUubwu34HBB8`;
-    const url = ``;
+    console.log(storeImgSource);
+    const url = `https://vision.googleapis.com/v1/images:annotate?key=AIzaSyBc2v6Bg6wnZJSxMGI3_rdJUubwu34HBB8`;
 
     const method = `POST`;
     const data =
@@ -15,11 +15,13 @@ export default {
       requests: [
         {
           image: {
+            // content: storeImgSource,
             content: storeImgSource,
+
           },
           features: [
             {
-              type: `FACE_DETECTION`,
+              type: `LABEL_DETECTION`,
 
             }
           ]

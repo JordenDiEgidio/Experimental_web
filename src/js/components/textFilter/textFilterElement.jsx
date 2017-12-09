@@ -1,9 +1,9 @@
 import React from 'react';
 
-const textFilterElement = () => {
-
+const textFilterElement = props => {
+  const name = props[`name`];
   return (
-    <p className='text-effect'>Emotional</p>
+    <p className='text-effect'>{name}</p>
   );
 
 };

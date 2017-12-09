@@ -10,6 +10,9 @@ class Store {
   textColor = `#FF0000`
 
   @observable
+  labels = [`test`]
+
+  @observable
   screenshotTaken = false;
 
   @observable
@@ -59,12 +62,25 @@ class Store {
       // ctx.fillText(`I'm very emotional`, 10, 50);
     };
     img.src = this.canvasSrc;
+    this.test(this.storeImgSource);
   }
 
   @action
   test = image => {
     visionAPI.read(image)
-      .then(data => console.log(data));
+      // .then(data => console.log(data.responses[0].labelAnnotations));
+      .then(data => this.addLabels(data.responses[0].labelAnnotations));
+
+  }
+
+  @action
+  addLabels = (...data) => {
+    data[0].forEach(d => {
+      // console.log(d);
+      // console.log(d.description);
+      this.labels.push(d.description);
+    });
+
   }
 
 }
