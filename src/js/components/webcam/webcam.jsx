@@ -27,8 +27,9 @@ const webcamAdd = ({setCanvasSrc, drawImage, drawSprite, screenshotTakenswitch, 
     //console.log(update);
     //update();
   };
-
-  window.requestAnimationFrame(drawSprite);
+  if (screenshotTaken) {
+    window.requestAnimationFrame(drawSprite);
+  }
 
   if (screenshotTaken) {
     return (
