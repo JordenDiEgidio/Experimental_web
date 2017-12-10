@@ -22,12 +22,20 @@ class Store {
   canvas = ``;
 
   @observable
-  filter = `sepia`;
+  filter = `linear-transfer`;
+
+  @observable
+  filterAmount = 0;
 
   @action
   setFilter = selection => {
     this.filter = selection;
     console.log(this.filter);
+  }
+
+  @action
+  setAmount = Amount => {
+    this.filterAmount = Amount;
   }
 
   @action

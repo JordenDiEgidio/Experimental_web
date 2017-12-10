@@ -10,12 +10,13 @@ http://devlog-martinsh.blogspot.com/2013/05/image-imperfections-and-film-grain-p
 Modified to preserve alpha
 
 */
+/* eslint-disable */
 (function (root, factory) {
   'use strict';
 
   if (typeof define === `function` && define.amd) {
     // AMD. Register as an anonymous module.
-    define([`seriously`], factory);
+    define([`../effects/seriously`], factory);
   } else if (typeof exports === `object`) {
     // Node/CommonJS
     factory(require(`seriously`));

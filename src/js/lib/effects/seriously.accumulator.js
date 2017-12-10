@@ -1,10 +1,11 @@
 /* global define, require */
+/* eslint-disable */
 (function (root, factory) {
   'use strict';
 
   if (typeof define === `function` && define.amd) {
     // AMD. Register as an anonymous module.
-    define([`seriously`], factory);
+    define([`../effects/seriously`], factory);
   } else if (typeof exports === `object`) {
     // Node/CommonJS
     factory(require(`seriously`));
@@ -33,10 +34,10 @@
       };
     }
 
-    return `vec3(${ 
-      formula.replace(/blend|base/g, replace(`r`))  }, ${ 
-      formula.replace(/blend|base/g, replace(`g`))  }, ${ 
-      formula.replace(/blend|base/g, replace(`b`)) 
+    return `vec3(${
+      formula.replace(/blend|base/g, replace(`r`))  }, ${
+      formula.replace(/blend|base/g, replace(`g`))  }, ${
+      formula.replace(/blend|base/g, replace(`b`))
     })`;
   }
 

@@ -1,10 +1,11 @@
 /* global define, require */
+/* eslint-disable */
 (function (root, factory) {
   'use strict';
 
   if (typeof define === `function` && define.amd) {
     // AMD. Register as an anonymous module.
-    define([`seriously`], factory);
+    define([`../effects/seriously`], factory);
   } else if (typeof exports === `object`) {
     // Node/CommonJS
     factory(require(`seriously`));
@@ -50,7 +51,7 @@
 * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-* 
+*
 	*/
   Seriously.plugin(`daltonize`, {
     commonShader: true,
@@ -133,7 +134,7 @@
         `	vec3 RGB = lms * LMSRGB;`,
 
         // Colour shift
-        // values may go over 1.0 but will get automatically clamped on output	
+        // values may go over 1.0 but will get automatically clamped on output
         `	RGB.rgb = color.rgb - RGB.rgb;`,
         `	RGB.g = 0.7*RGB.r + RGB.g;`,
         `	RGB.b = 0.7*RGB.r + RGB.b;`,

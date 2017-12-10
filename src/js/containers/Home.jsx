@@ -4,6 +4,7 @@ import Webcam from '../components/webcam/webcam.jsx';
 import Canvas from '../components/canvas/canvas.jsx';
 import Textfilter from '../components/textFilter/textFilter.jsx';
 import Dropdown from '../components/Dropdown/Dropdown.jsx';
+import Slider from '../components/Dropdown/slider.jsx';
 import {bool} from 'prop-types';
 
 const Home = () => {
@@ -14,6 +15,8 @@ const Home = () => {
       <Webcam />
       <Canvas />
       <Dropdown />
+      <Slider />
+
     </div>
   );
 };

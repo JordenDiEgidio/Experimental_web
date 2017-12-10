@@ -23,9 +23,44 @@ const dropdown = ({screenshotTaken, setFilter}) => {
     return (
       <form>
         <select ref={this.handleFilters} onChange={this.handleChange}>
-          <option value='sepia'>Sepia</option>
-          <option value='directionblur'>Directional blur</option>
-          <option value='emboss'>emboss</option>
+          <optgroup label='adjustable'>
+            <option value='directionblur'>Directional blur</option>
+            <option value='bleach-bypass'>bleach-bypass</option>
+            <option value='blur'>blur</option>
+            <option value='colorcomplements'>colorcomplements</option>
+            <option value='emboss'>emboss</option>
+            <option value='fader'>fader</option>
+            <option value='filmgrain'>filmgrain</option>
+            <option value='noise'>noise</option>
+            <option value='tvglitch'>tvglitch</option>
+            <option value='vibrance'>vibrance</option>
+            <option value='vignette'>vignette</option>
+          </optgroup>
+          <optgroup label='overlays'>
+            <option value='linear-transfer'>normal</option>
+            <option value='sepia'>Sepia</option>
+            <option value='ascii'>ascii</option>
+            <option value='checkerboard'>checkerboard</option>
+            <option value='daltonize'>daltonize</option>
+            <option value='dither'>dither</option>
+            <option value='edge'>edge</option>
+            <option value='exposure'>exposure</option>
+            <option value='falsecolor'>falsecolor</option>
+            <option value='hue-saturation'>hue-saturation</option>
+            <option value='invert'>invert</option>
+            <option value='kaleidoscope'>kaleidoscope</option>
+            <option value='mirror'>mirror</option>
+            <option value='nightvision'>nightvision</option>
+            <option value='opticalflow'>opticalflow</option>
+            <option value='panorama'>panorama</option>
+            <option value='pixelate'>pixelate</option>
+            <option value='polar'>polar</option>
+            <option value='ripple'>ripple</option>
+            <option value='scanlines'>scanlines</option>
+            <option value='sketch'>sketch</option>
+            <option value='tone'>tone</option>
+            <option value='whitebalance'>whitebalance</option>
+          </optgroup>
         </select>
       </form>
     );

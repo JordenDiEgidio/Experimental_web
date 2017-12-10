@@ -8,12 +8,13 @@ Adapted from v002 by Anton Marini and Tom Butterworth
 
 http://v002.info/plugins/v002-blurs/
 */
+/* eslint-disable */
 (function (root, factory) {
   'use strict';
 
   if (typeof define === `function` && define.amd) {
     // AMD. Register as an anonymous module.
-    define([`seriously`], factory);
+    define([`../effects/seriously`], factory);
   } else if (typeof exports === `object`) {
     // Node/CommonJS
     factory(require(`seriously`));

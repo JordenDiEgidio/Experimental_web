@@ -1,4 +1,5 @@
 /* global define, require */
+/* eslint-disable */
 (function (root, factory) {
   'use strict';
 
@@ -7,7 +8,7 @@
     factory(require(`seriously`));
   } else if (typeof define === `function` && define.amd) {
     // AMD. Register as an anonymous module.
-    define([`seriously`], factory);
+    define([`../effects/seriously`], factory);
   } else {
     if (!root.Seriously) {
       root.Seriously = {plugin: function (name, opt) { this[name] = opt; }};
