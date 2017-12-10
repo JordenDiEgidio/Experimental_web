@@ -2,7 +2,7 @@ import React from 'react';
 import {func, bool, string, number} from "prop-types";
 import {observer, inject} from "mobx-react";
 
-const canvasAdd = ({setCanvas, drawImage, screenshotTaken, filter, filterAmount}) => {
+const canvasAdd = ({setCanvas, setCanvas2, drawImage, screenshotTaken, filter, filterAmount}) => {
 
   const seriouslyCallback = Seriously => {
     console.log(filterAmount);
@@ -36,12 +36,18 @@ const canvasAdd = ({setCanvas, drawImage, screenshotTaken, filter, filterAmount}
     setCanvas(e);
   };
 
+  this.handledrawSprite = e => {
+    setCanvas2(e);
+  };
+
   setCanvas();
+  setCanvas2();
 
   return (
     <div>
       <canvas id='canvas' className='canvas' width='700' height='500' ref={this.handledrawImage}></canvas>
       <canvas id='canvas2' width='700' height='500'></canvas>
+      <canvas id='canvas3' width='700' height='500' ref={this.handledrawSprite}></canvas>
     </div>
   );
 
@@ -52,7 +58,8 @@ canvasAdd.propTypes = {
   drawImage: func.isRequired,
   screenshotTaken: bool.isRequired,
   filter: string.isRequired,
-  filterAmount: number.isRequired
+  filterAmount: number.isRequired,
+  setCanvas2: func.isRequired
 };
 
 export default inject(({store}) => {
@@ -61,6 +68,7 @@ export default inject(({store}) => {
     drawImage: store.drawImage,
     screenshotTaken: store.screenshotTaken,
     filter: store.filter,
-    filterAmount: store.filterAmount
+    filterAmount: store.filterAmount,
+    setCanvas2: store.setCanvas2
   };
 })(observer(canvasAdd));
