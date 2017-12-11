@@ -20,7 +20,45 @@ header {
 }
 
 h1 {
-  font-size: 3rem;
+  color: white;
+  font-size: 5rem;
+  text-align: center;
+  text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+  margin-bottom: 5rem;
+}
+
+.gif-generator {
+  display: flex;
+  margin: auto;
+  width: 96rem;
+  justify-content: space-around;
+}
+
+.image-frame {
+  width: 50rem;
+}
+
+.manipulation {
+  border: solid 2px black;
+  border-radius: 5px;
+  width: 40rem;
+}
+
+.button-group {
+  margin-top: 2rem;
+}
+
+.big-button {
+  border: solid 2px black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+
+.big-button:hover {
+  background-color: black;
+  color: white;
 }
 
 .text-effect {
@@ -52,12 +90,6 @@ h1 {
   height: 20px;
   margin-right: 20px;
   width: 20px;
-}
-
-.filters {
-  display: flex;
-  justify-content: space-around;
-  width: 500px;
 }
 
 .canvas {

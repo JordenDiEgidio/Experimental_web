@@ -6,14 +6,12 @@ import {observer, inject} from "mobx-react";
 //test
 const webcamAdd = ({setCanvasSrc, drawImage, drawSprite, screenshotTakenswitch, screenshotTaken, setStoreImgSource}) => {
 
-  this.imageSrc;
+  this.setImage = imageSrc => {
+    this.imageSrc = imageSrc;
+  };
 
   this.setRef = webcam => {
     this.webcam = webcam;
-  };
-
-  this.setImage = imageSrc => {
-    this.imageSrc = imageSrc;
   };
 
   this.handleScreenshot = () => {
@@ -38,14 +36,17 @@ const webcamAdd = ({setCanvasSrc, drawImage, drawSprite, screenshotTakenswitch, 
   } else {
     return (
       <div>
-        <button onClick={this.handleScreenshot}>take screenshot</button>
         <Webcam
           audio={false}
-          height={700}
           screenshotFormat='image/webp'
           ref={this.setRef}
-          width={700}
+          width={500}
+          height={400}
         />
+        <div className='button-group'>
+          <a className='big-button' onClick={this.handleScreenshot}>Take shot</a>
+        </div>
+
       </div>
     );
   }
