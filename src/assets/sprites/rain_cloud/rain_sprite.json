@@ -1,0 +1,102 @@
+{"frames": [
+
+{
+	"filename": "rain_cloud_1.png",
+	"frame": {"x":0,"y":0,"w":368,"h":228},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":228},
+	"sourceSize": {"w":368,"h":228},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_2.png",
+	"frame": {"x":368,"y":0,"w":368,"h":262},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":262},
+	"sourceSize": {"w":368,"h":262},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_3.png",
+	"frame": {"x":736,"y":0,"w":368,"h":302},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":302},
+	"sourceSize": {"w":368,"h":302},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_4.png",
+	"frame": {"x":1104,"y":0,"w":368,"h":382},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":382},
+	"sourceSize": {"w":368,"h":382},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_5.png",
+	"frame": {"x":1472,"y":0,"w":368,"h":452},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":452},
+	"sourceSize": {"w":368,"h":452},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_6.png",
+	"frame": {"x":0,"y":452,"w":368,"h":532},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":532},
+	"sourceSize": {"w":368,"h":532},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_7.png",
+	"frame": {"x":368,"y":452,"w":368,"h":602},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":602},
+	"sourceSize": {"w":368,"h":602},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_8.png",
+	"frame": {"x":736,"y":452,"w":368,"h":672},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":672},
+	"sourceSize": {"w":368,"h":672},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_9.png",
+	"frame": {"x":1104,"y":452,"w":368,"h":752},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":752},
+	"sourceSize": {"w":368,"h":752},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rain_cloud_10.png",
+	"frame": {"x":1472,"y":452,"w":368,"h":832},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":368,"h":832},
+	"sourceSize": {"w":368,"h":832},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "rain_sprite.png",
+	"format": "RGBA8888",
+	"size": {"w":1840,"h":1284},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:86f724c60a5b7625d462d1dee09b5c43:05f4a38897bbcd2b78513733e32e5a13:5aa6ea407f48a0153efab675420331fd$"
+}
+}
