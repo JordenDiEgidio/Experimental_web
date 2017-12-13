@@ -12,11 +12,7 @@ const App = ({name}) => (
   <section>
 
     {process.env.NODE_ENV !== `production` ? <DevTools /> : null}
-
-    <header>
-      <h1>{name}</h1>
-    </header>
-
+    {console.log(name)}
     <section>
       <Route
         exact path='/'
