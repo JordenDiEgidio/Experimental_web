@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "scripts": {
     "development": "npm run clean && NODE_ENV=development webpack-dev-server --open",
-      "serve": "ws -d ./dist -c -p 3000 -s index.html",
-      "start": "npm run serve",
-      "clean": "rimraf ./dist",
-      "production": "npm run clean && NODE_ENV=production webpack -p",
-    "flow": "flow --color always"
+    "serve": "ws -d ./dist -c -p 3000 -s index.html",
+    "start": "npm http-server ./dist",
+    "clean": "rimraf ./dist",
+    "production": "npm run clean && NODE_ENV=production webpack -p"
   },
   "devDependencies": {
     "@google-cloud/vision": "^0.12.0",
@@ -61,22 +60,10 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "boom": "^7.1.1",
     "dotenv": "^4.0.0",
-    "forever": "^0.15.3",
-    "glob": "^7.1.1",
-    "lodash": "^4.17.4",
-    "joi": "^10.1.0",
-    "joi-objectid": "^2.0.0",
-    "hapi-devine-autoload": "^2.0.0",
-    "hapi-devine-routes": "^1.0.0",
-    "hapi": "^16.1.0",
-    "http-client": "^4.3.1",
-    "hapi-devine-parse-query": "^1.0.0",
-    "hapi-devine-api-config": "^2.0.0",
-    "isomorphic-fetch": "^2.2.1",
-    "inert": "^4.1.0",
-    "hapi-devine-mongodb": "^1.0.0",
-    "hapi-devine-auth": "^2.0.0",
-    "mongoose-bcrypt": "^1.4.2"
+    "hapi": "^17.1.1",
+    "http-server": "^0.10.0",
+    "inert": "^5.0.1"
   }
 }
