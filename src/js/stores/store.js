@@ -30,6 +30,17 @@ class Store {
   @observable
   filterAmount = 0;
 
+  constructor() {
+    this.myImage = new Image();
+    this.myImage.src = `/assets/sprites/rain_sprite2.png`;
+  }
+
+  shiftt = 0;
+  constframeWidth = 100;
+  frameHeight = 226;
+  totalFrames = 24;
+  currentFrame = 0;
+
   @action
   setFilter = selection => {
     this.filter = selection;
@@ -83,35 +94,33 @@ class Store {
 
   @action
   drawSprite = () => {
-    console.log(`drawing`);
-    let shift = 0;
-    const frameWidth = 100;
-    const frameHeight = 226;
-    const totalFrames = 24;
-    let currentFrame = 1;
+    //console.log(`drawing`)
     const canvas = this.canvas2;
     const ctx = canvas.getContext(`2d`);
-    const sprite = new Image();
 
-    sprite.onload = function() {
-      ctx.clearRect(120, 25, 300, 300);
-      ctx.drawImage(sprite, shift, 0, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
-      shift += frameWidth + 1;
-      if (currentFrame === totalFrames) {
-        shift = 0;
-        currentFrame = 1;
+    //console.log(this.m yImage);
+
+    this.myImage.onload = function() {
+      console.log(`loaded`);
+      ctx.clearRect(0, 0, 226, 300);
+      ctx.drawImage(this.myImage, this.shiftt, 0, this.frameWidth, this.frameHeight, 120, 25, this.frameWidth, this.frameHeight);
+      this.shiftt += this.frameWidth + 1;
+      if (this.currentFrame === this.totalFrames) {
+        this.shiftt = 0;
+        this.currentFrame = 0;
       }
-      currentFrame ++;
+
+      this.currentFrame ++;
     };
-    sprite.src = this.sprites;
+    requestAnimationFrame(this.drawSprite);
     //console.log(currentFrame);
     //this.update();
   }
 
   @action
   update = () => {
-    this.requestAnimationFrame(this.drawSprite);
-  }
+
+  };
 
   @action
   test = image => {
@@ -132,6 +141,12 @@ class Store {
   }
 
 }
+
+const log = () => {
+  console.log(`requestAnimation`);
+};
+
+window.requestAnimationFrame(log);
 
 const store = new Store();
 
