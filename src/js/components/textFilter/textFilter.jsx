@@ -2,6 +2,7 @@ import React from 'react';
 import {object} from "prop-types";
 import {observer, inject} from "mobx-react";
 import TextfilterElement from './textFilterElement.jsx';
+import TextColor from './textColor.jsx';
 
 const textFilter = ({labels}) => {
 
@@ -22,6 +23,7 @@ const textFilter = ({labels}) => {
           )
         )
       }
+      <TextColor />
 
     </div>
   );

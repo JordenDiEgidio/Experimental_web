@@ -27,6 +27,13 @@ const canvasAdd = ({setCanvas, setCanvas2, drawImage, screenshotTaken, filter, f
     ], seriouslyCallback);
   };
 
+  // const drawText = () => {
+  //   const canvas3 = document.getElementById(`canvas2`);
+  //   const ctx = canvas3.getContext(`2d`);
+  //   ctx.font = `40px Courier`;
+  //   ctx.fillText(`test`, 210, 75);
+  // };
+
   if (screenshotTaken === true) {
     drawImage();
     this.filters();

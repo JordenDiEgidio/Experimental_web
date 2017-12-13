@@ -2,6 +2,7 @@ import React from 'react';
 import {inject, observer} from 'mobx-react';
 import Webcam from '../components/webcam/webcam.jsx';
 import Canvas from '../components/canvas/canvas.jsx';
+import Canvas2 from '../components/canvas/canvas2.jsx';
 import Textfilter from '../components/textFilter/textFilter.jsx';
 import Dropdown from '../components/Dropdown/Dropdown.jsx';
 import Slider from '../components/Dropdown/slider.jsx';
@@ -14,7 +15,10 @@ const Home = () => {
   return (
     <main>
       <h1>The Gifmaker</h1>
+      <Canvas2 />
+
       <div className='gif-generator'>
+
         <div className='image-frame'>
           <Webcam />
         </div>
