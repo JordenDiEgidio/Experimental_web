@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "scripts": {
     "development": "npm run clean && NODE_ENV=development webpack-dev-server --open",
-    "serve": "ws -d ./dist -c -p 3000 -s index.html",
-    "start": "ws -d ./dist -c -p 80 -s index.html",
+    "start": "npm run serve",
+    "serve": "forever .",
     "clean": "rimraf ./dist",
     "production": "npm run clean && NODE_ENV=production webpack -p",
     "flow": "flow --color always"
@@ -61,6 +61,7 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
+    "forever": "^0.15.3",
     "gl-react": "^2.3.1"
   }
 }
