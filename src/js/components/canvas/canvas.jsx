@@ -18,7 +18,7 @@ const canvasAdd = ({setCanvas, setCanvas2, drawImage, screenshotTaken, filter, f
   };
 
   this.filters = () => {
-    console.log(filter);
+    //console.log(filter);
     require([
       `../../lib/effects/seriously`,
       `../../lib/effects/seriously.${filter}`
@@ -54,7 +54,7 @@ const canvasAdd = ({setCanvas, setCanvas2, drawImage, screenshotTaken, filter, f
     <div>
       <canvas id='canvas' className='canvas' width='500' height='400' ref={this.handledrawImage}></canvas>
       <canvas id='canvas2' width='500' height='400'></canvas>
-      <canvas id='canvas3' width='500' height='400' ref={this.handledrawSprite}></canvas>
+      {/* <canvas id='canvas3' width='500' height='400' ref={this.handledrawSprite}></canvas> */}
     </div>
   );
 
