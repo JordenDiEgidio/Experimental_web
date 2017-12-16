@@ -100,24 +100,7 @@ class Store {
     this.textColor = selectedColor;
   }
 
-  @action
-  drawImage = () => {
-    const canvas = this.canvas;
-    const ctx = canvas.getContext(`2d`);
-    const img = new Image();
-    const selectedLabel = this.selectedLabel;
-    const textColor = this.textColor;
-    img.onload = function() {
-      console.log(`load`);
-      ctx.drawImage(img, 0, 0);
-      ctx.font = `48px bold`;
-      ctx.textAlign = `center`;
-      ctx.fillStyle = textColor;
-      ctx.fillText(selectedLabel, 250, 50);
-    };
-    console.log(this.sprites);
-    img.src = this.canvasSrc;
-  }
+
 
   // @action
   // drawSprite = () => {
@@ -148,10 +131,7 @@ class Store {
   //   };
   // }
 
-  @action
-  update = () => {
 
-  };
 
   @action
   test = image => {

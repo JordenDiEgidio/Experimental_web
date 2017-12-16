@@ -27,11 +27,28 @@ h1 {
   margin-bottom: 5rem;
 }
 
+.title {
+  width: 96rem;
+}
+
 .gif-generator {
   display: flex;
+  flex-wrap: wrap;
   margin: auto;
   width: 96rem;
-  justify-content: space-around;
+}
+
+.testcanvas {
+  width: 50rem;
+}
+
+.edit {
+  width: 40rem;
+  margin-left: 2rem;
+}
+
+.testwebcam {
+  width: 50rem;
 }
 
 .image-frame {
@@ -97,8 +114,4 @@ h1 {
   height: 20px;
   margin-right: 20px;
   width: 20px;
-}
-
-.canvas {
-  display: none;
 }

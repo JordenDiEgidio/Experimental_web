@@ -11,7 +11,7 @@ const textFilter = ({labels}) => {
   );
 
   return (
-    <div className='text-filter'>
+    <div className='edit'>
       <h2>Smart captions</h2>
       {
         labels.map(

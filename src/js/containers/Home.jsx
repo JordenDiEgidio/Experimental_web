@@ -1,7 +1,7 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 import Webcam from '../components/webcam/webcam.jsx';
-import Canvas from '../components/canvas/canvas.jsx';
+// import Canvas from '../components/canvas/canvas.jsx';
 import Canvas2 from '../components/canvas/canvas2.jsx';
 import Animation from '../components/animation/animation.jsx';
 import Textfilter from '../components/textFilter/textFilter.jsx';
@@ -11,29 +11,33 @@ import Slider from '../components/Dropdown/slider.jsx';
 
 import {bool} from 'prop-types';
 
-const Home = () => {
+const Home = ({screenshotTaken}) => {
+  if (screenshotTaken) {
+    console.log(`het eerste`);
+    return (
+      <main className='gif-generator'>
+        <h1 className='title'>The Gifmaker</h1>
+        <Canvas2 />
+        <Textfilter />
 
+        <Animation />
+        <Dropdown />
+        <Slider />
 
-  return (
-    <main>
-      <h1>The Gifmaker</h1>
-      <Canvas2 />
+      </main>
+    );
+  } else {
+    console.log(`het tweede`);
+    return (
+      <main className='gif-generator'>
+        <h1 className='title'>The Gifmaker</h1>
+        <Canvas2 />
+        <Webcam />
 
-      <div className='gif-generator'>
+      </main>
+    );
+  }
 
-        <div className='image-frame'>
-          <Webcam />
-        </div>
-        <div className='manipulation'>
-          <Textfilter />
-        </div>
-      </div>
-      <Canvas />
-      <Animation />
-      <Dropdown />
-      <Slider />
-    </main>
-  );
 };
 
 Home.propTypes = {
