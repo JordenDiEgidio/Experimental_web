@@ -55,7 +55,8 @@ webcamAdd.propTypes = {
   drawImage: func.isRequired,
   screenshotTakenswitch: func.isRequired,
   setStoreImgSource: func.isRequired,
-  screenshotTaken: bool.isRequired,  drawSprite: func.isRequired,
+  screenshotTaken: bool.isRequired,
+  // drawSprite: func.isRequired,
   // test: func.isRequired
 
 };
@@ -67,11 +68,8 @@ export default inject(({store}) => {
     setCanvasSrc: store.setCanvasSrc,
     screenshotTaken: store.screenshotTaken,
     setStoreImgSource: store.setStoreImgSource,
-<<<<<<< HEAD
-    drawSprite: store.drawSprite,
+    // drawSprite: store.drawSprite,
     // test: store.test
 
-=======
->>>>>>> ec69f3a4de9306e524603d284950ae61d5fb2dc8
   };
 })(observer(webcamAdd));

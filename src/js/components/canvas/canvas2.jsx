@@ -1,17 +1,16 @@
 import React from 'react';
-import {bool} from "prop-types";
+import {bool, string, number} from "prop-types";
 
 import {observer, inject} from 'mobx-react';
 
 
 
-const canvas2 = ({screenshotTaken}) => {
+const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, frameWidth, frameHeight, currentFrame, totalFrames, shiftImage}) => {
 
   const drawImage = () => {
     const ctx = this.canvas123.getContext(`2d`);
     const img = new Image();
-    const selectedLabel = this.selectedLabel;
-    const textColor = this.textColor;
+
     img.onload = function() {
       console.log(`load`);
       ctx.drawImage(img, 0, 0);
@@ -20,16 +19,55 @@ const canvas2 = ({screenshotTaken}) => {
       ctx.fillStyle = textColor;
       ctx.fillText(selectedLabel, 250, 50);
     };
-    img.src = this.canvasSrc;
+    img.src = canvasSrc;
+  };
+
+  const myImage = new Image();
+  myImage.src = `../../assets/sprites/rain_sprite2.png`;
+  this.ctx;
+
+  const handleDrawSprite = () => {
+    this.ctx = this.canvas123.getContext(`2d`);
+    limitLoop(drawSprite, 5);
+  };
+
+  const drawSprite = () => {
+    drawImage();
+    this.ctx.clearRect(0, 0, 226, 300);
+    this.ctx.drawImage(myImage, shiftImage, 0, frameWidth, frameHeight, 120, 25, frameWidth, frameHeight);
+    shiftImage += frameWidth + 1;
+    if (currentFrame === totalFrames) {
+      shiftImage = 0;
+      currentFrame = 0;
+    }
+    currentFrame ++;
+  };
+
+  const limitLoop = function (fn, fps) {
+    let then = new Date().getTime();
+    fps = fps || 5;
+    const interval = 1000 / fps;
+
+    return (function loop() {
+      requestAnimationFrame(loop);
+      const now = new Date().getTime();
+      const delta = now - then;
+
+      if (delta > interval) {
+        then = now - (delta % interval);
+        fn();
+      }
+    }(0));
   };
 
   if (screenshotTaken) {
     drawImage();
+    handleDrawSprite();
   }
 
   return (
     <div>Hello Canvas2 {screenshotTaken}
-      <canvas ref={c => { this.canvas123 = c; }}></canvas>
+      <canvas  width='500' height='400' ref={c => { this.canvas123 = c; }}></canvas>
     </div>
   );
 };
@@ -37,6 +75,16 @@ const canvas2 = ({screenshotTaken}) => {
 canvas2.propTypes = {
 
   screenshotTaken: bool.isRequired,
+  canvasSrc: string.isRequired,
+  selectedLabel: string.isRequired,
+  textColor: string.isRequired,
+  shiftImage: number.isRequired,
+  frameWidth: number.isRequired,
+  frameHeight: number.isRequired,
+  currentFrame: number.isRequired,
+  totalFrames: number.isRequired
+
+
 
 };
 
@@ -44,6 +92,15 @@ export default inject(({store}) => {
   return {
 
     screenshotTaken: store.screenshotTaken,
+    canvasSrc: store.canvasSrc,
+    selectedLabel: store.selectedLabel,
+    textColor: store.textColor,
+    selectedColor: store.selectedColor,
+    shiftImage: store.shiftImage,
+    frameWidth: store.frameWidth,
+    frameHeight: store.frameHeight,
+    currentFrame: store.currentFrame,
+    totalFrames: store.totalFrames
 
   };
 })(observer(canvas2));

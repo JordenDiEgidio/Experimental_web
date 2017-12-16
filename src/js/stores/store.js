@@ -23,9 +23,6 @@ class Store {
   selectedLabel = `Deviner`
 
   @observable
-  textColor = `red`
-
-  @observable
   screenshotTaken = false;
 
   @observable
@@ -54,6 +51,9 @@ class Store {
 
   @observable
   currentFrame = 0;
+
+  @observable
+  canvasSrc = ``;
 
   @action
   setFilter = selection => {
@@ -97,7 +97,7 @@ class Store {
 
   @action
   setSelectedColor = selectedColor => {
-    this.selectedColor = selectedColor;
+    this.textColor = selectedColor;
   }
 
   @action
