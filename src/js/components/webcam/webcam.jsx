@@ -4,7 +4,7 @@ import {func} from "prop-types";
 import {observer, inject} from "mobx-react";
 
 //test
-const webcamAdd = ({setCanvasSrc, screenshotTakenswitch, setStoreImgSource}) => {
+const webcamAdd = ({setCanvasSrc, screenshotTakenswitch, setStoreImgSource, test}) => {
 
   this.setImage = imageSrc => {
     this.imageSrc = imageSrc;
@@ -50,7 +50,7 @@ webcamAdd.propTypes = {
   setStoreImgSource: func.isRequired,
   // screenshotTaken: bool.isRequired,
   // drawSprite: func.isRequired,
-  // test: func.isRequired
+  test: func.isRequired
 
 };
 
@@ -61,7 +61,7 @@ export default inject(({store}) => {
     screenshotTaken: store.screenshotTaken,
     setStoreImgSource: store.setStoreImgSource,
     // drawSprite: store.drawSprite,
-    // test: store.test
+    test: store.test
 
   };
 })(observer(webcamAdd));

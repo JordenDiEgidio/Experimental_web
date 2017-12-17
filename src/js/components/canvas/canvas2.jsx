@@ -7,7 +7,7 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
   let canvasHeight = 0;
 
   const seriouslyCallback = Seriously => {
-    console.log(filterAmount);
+  //  console.log(filterAmount);
     const seriously = new Seriously();
     const target = seriously.target(this.canvasfilter);
     const sepiafilter = seriously.effect(filter);
@@ -37,9 +37,9 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
 
     const ctx = this.finalCanvas.getContext(`2d`);
     //console.log(can1);
-    console.log(can2);
-    console.log(can3);
-    console.log(ctx);
+    // console.log(can2);
+    // console.log(can3);
+    // console.log(ctx);
     ctx.clearRect(0, 0, 226, 300);
     ctx.drawImage(can2, 0, 0);
     //ctx.globalAlpha = 0.2;
