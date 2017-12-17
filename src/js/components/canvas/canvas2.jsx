@@ -1,9 +1,6 @@
 import React from 'react';
 import {bool, string, number} from "prop-types";
-
 import {observer, inject} from 'mobx-react';
-
-
 
 const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, filterAmount}) => {
   let canvasWidth = 0;
@@ -12,10 +9,10 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
   const seriouslyCallback = Seriously => {
     console.log(filterAmount);
     const seriously = new Seriously();
-    const target = seriously.target(this.canvas123);
+    const target = seriously.target(this.canvasfilter);
     const sepiafilter = seriously.effect(filter);
     //const sepiafilter = seriously.effect(`sepia`);
-    const src = seriously.source(canvasSrc);
+    const src = seriously.source(this.canvas123);
     sepiafilter.source = src;
     target.source = sepiafilter;
     sepiafilter.amount = filterAmount;
@@ -65,6 +62,8 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
   return (
     <div className='testcanvas'>
       <canvas width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
+      <canvas width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
+
     </div>
   );
 };
