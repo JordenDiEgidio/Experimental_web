@@ -6,6 +6,8 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
 
   const myImage = new Image();
   myImage.src = `../../assets/sprites/rain_sprite2.png`;
+  //myImage.src = `../../assets/sprites/sun_sprite.png`;
+
   this.ctx;
 
   this.handleDrawSprite = e => {
@@ -43,7 +45,7 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
 
   if (screenshotTaken) {
     return (
-      <canvas id='canvas3' width='500' height='400' ref={this.handleDrawSprite}></canvas>
+      <canvas id='canvas3' className='hiddencanvas' width='500' height='400' ref={this.handleDrawSprite}></canvas>
     );
   } else {
     return (

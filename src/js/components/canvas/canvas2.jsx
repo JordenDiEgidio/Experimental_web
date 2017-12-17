@@ -17,6 +17,7 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     target.source = sepiafilter;
     sepiafilter.amount = filterAmount;
     seriously.go();
+    combinecanvas();
   };
 
   this.filters = () => {
@@ -29,9 +30,34 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     ], seriouslyCallback);
   };
 
+  const combinecanvas = () => {
+    //const can1 = document.getElementById(`canvas1`);
+    const can2 = document.getElementById(`canvas2`);
+    const can3 = document.getElementById(`canvas3`);
+
+    const ctx = this.finalCanvas.getContext(`2d`);
+    //console.log(can1);
+    console.log(can2);
+    console.log(can3);
+    console.log(ctx);
+    ctx.clearRect(0, 0, 226, 300);
+    ctx.drawImage(can2, 0, 0);
+    //ctx.globalAlpha = 0.2;
+    //ctx.fillStyle = `rgba(0, 0, 200, 0)`;
+    ctx.drawImage(can3, 0, 0);
+    ctx.drawImage(can3, 100, 0);
+    ctx.drawImage(can3, 200, 0);
+
+
+
+    requestAnimationFrame(combinecanvas);
+
+  };
+
   const drawImage = () => {
     const ctx = this.canvas123.getContext(`2d`);
     const img = new Image();
+    // ctx.drawImage(img, 0, 0);
 
     img.onload = function() {
       console.log(`load`);
@@ -39,7 +65,7 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
       ctx.font = `48px bold`;
       ctx.textAlign = `center`;
       ctx.fillStyle = textColor;
-      ctx.fillText(selectedLabel, 250, 50);
+      ctx.fillText(selectedLabel, 250, 300);
     };
     img.src = canvasSrc;
   };
@@ -61,8 +87,9 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
 
   return (
     <div className='testcanvas'>
-      <canvas className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
-      <canvas width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
+      <canvas id='canvas1' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
+      <canvas id='canvas2' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
+      <canvas id='allcanvases' width={canvasWidth} height={canvasHeight} ref={c => { this.finalCanvas = c; }}></canvas>
 
     </div>
   );
