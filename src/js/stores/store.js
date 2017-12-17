@@ -17,7 +17,7 @@ class Store {
   sprites = `../../assets/sprites/rain_cloud/rain_sprite2.png`;
 
   @observable
-  labels = [`test`, `test2`, `test3`]
+  labels = []
 
   @observable
   selectedLabel = `Deviner`

@@ -21,7 +21,7 @@ const webcamAdd = ({setCanvasSrc, screenshotTakenswitch, setStoreImgSource}) => 
     const slicedImageSrc = imageSrc.slice(23, imageSrc.length);
     setCanvasSrc(imageSrc);
     setStoreImgSource(slicedImageSrc);
-    // test(slicedImageSrc);
+    test(slicedImageSrc);
     //console.log(update);
     //update();
   };
