@@ -38,6 +38,10 @@ h1 {
   width: 96rem;
 }
 
+.hiddencanvas {
+  display: none;
+}
+
 .testcanvas {
   width: 50rem;
 }

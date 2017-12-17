@@ -5,8 +5,8 @@ import Webcam from '../components/webcam/webcam.jsx';
 import Canvas2 from '../components/canvas/canvas2.jsx';
 import Animation from '../components/animation/animation.jsx';
 import Textfilter from '../components/textFilter/textFilter.jsx';
-import Dropdown from '../components/Dropdown/Dropdown.jsx';
-import Slider from '../components/Dropdown/slider.jsx';
+// import Dropdown from '../components/Dropdown/Dropdown.jsx';
+// import Slider from '../components/Dropdown/slider.jsx';
 // import Takescreenshot from '../components/Takescreenshot/button.jsx';
 
 import {bool} from 'prop-types';
@@ -21,8 +21,7 @@ const Home = ({screenshotTaken}) => {
         <Textfilter />
 
         <Animation />
-        <Dropdown />
-        <Slider />
+
 
       </main>
     );

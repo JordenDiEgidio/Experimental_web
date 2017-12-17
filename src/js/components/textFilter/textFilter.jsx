@@ -3,6 +3,8 @@ import {object} from "prop-types";
 import {observer, inject} from "mobx-react";
 import TextfilterElement from './textFilterElement.jsx';
 import TextColor from './textColor.jsx';
+import Dropdown from '../dropdown/dropdown.jsx';
+import Slider from '../dropdown/slider.jsx';
 
 const textFilter = ({labels}) => {
 
@@ -24,6 +26,8 @@ const textFilter = ({labels}) => {
         )
       }
       <TextColor />
+      <Dropdown />
+      <Slider />
 
     </div>
   );

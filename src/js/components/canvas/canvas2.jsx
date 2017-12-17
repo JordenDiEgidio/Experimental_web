@@ -61,7 +61,7 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
 
   return (
     <div className='testcanvas'>
-      <canvas width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
+      <canvas className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
       <canvas width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
 
     </div>
