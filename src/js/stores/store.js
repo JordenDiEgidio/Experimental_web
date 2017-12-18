@@ -14,10 +14,13 @@ class Store {
   textColor = `#FF0000`
 
   @observable
+  gifFrames = []
+
+  @observable
   sprites = `../../assets/sprites/rain_cloud/rain_sprite2.png`;
 
   @observable
-  labels = []
+  labels = [`test`]
 
   @observable
   selectedLabel = `Deviner`
@@ -78,6 +81,11 @@ class Store {
   @action
   setCanvas2 = e => {
     this.canvas2 = e;
+  }
+
+  @action
+  addGifFrame = frame => {
+    this.gifFrames.push(frame);
   }
 
   @action

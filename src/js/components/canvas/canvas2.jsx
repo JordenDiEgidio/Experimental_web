@@ -1,8 +1,9 @@
 import React from 'react';
-import {bool, string, number} from "prop-types";
+import {bool, string, number, func, object} from "prop-types";
 import {observer, inject} from 'mobx-react';
+import gifshot from 'gifshot';
 
-const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, filterAmount}) => {
+const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, filterAmount, addGifFrame, gifFrames}) => {
   let canvasWidth = 0;
   let canvasHeight = 0;
 
@@ -36,6 +37,8 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     const can3 = document.getElementById(`canvas3`);
 
     const ctx = this.finalCanvas.getContext(`2d`);
+    addGifFrame(this.finalCanvas.toDataURL());
+
     //console.log(can1);
     // console.log(can2);
     // console.log(can3);
@@ -75,14 +78,39 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
   this.ctx;
 
   this.handleClick = () => {
-    const url = this.finalCanvas.toDataURL(``);
-    console.log(url);
-    const link = document.createElement(`a`);
-    link.download = `Gif`;
-    link.href = url;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const gifshotArray = gifFrames.slice(- 10);
+
+    gifshot.createGIF({
+      images: [
+        gifshotArray[0],
+        gifshotArray[1],
+        gifshotArray[2],
+        gifshotArray[3],
+        gifshotArray[4],
+        gifshotArray[5],
+        gifshotArray[6],
+        gifshotArray[7],
+        gifshotArray[8],
+        gifshotArray[9],
+
+      ],
+    }, function(obj) {
+      if (!obj.error) {
+        const image = obj.image,
+          animatedImage = document.createElement(`img`);
+        animatedImage.src = image;
+        document.body.appendChild(animatedImage);
+      }
+    });
+
+    // const url = this.finalCanvas.toDataURL(``);
+    // console.log(url);
+    // const link = document.createElement(`a`);
+    // link.download = `Gif`;
+    // link.href = url;
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
     //delete link;
   };
 
@@ -114,6 +142,8 @@ canvas2.propTypes = {
   textColor: string.isRequired,
   filter: string.isRequired,
   filterAmount: number.isRequired,
+  addGifFrame: func.isRequired,
+  gifFrames: object.isRequired
 
 
 };
@@ -133,6 +163,8 @@ export default inject(({store}) => {
     totalFrames: store.totalFrames,
     filter: store.filter,
     filterAmount: store.filterAmount,
+    addGifFrame: store.addGifFrame,
+    gifFrames: store.gifFrames
 
   };
 })(observer(canvas2));
