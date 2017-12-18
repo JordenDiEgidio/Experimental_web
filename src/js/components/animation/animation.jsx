@@ -11,7 +11,9 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
   this.ctx;
 
   this.handleDrawSprite = e => {
-    this.ctx = e.getContext(`2d`);
+    console.log(this.animationCanvas);
+    console.log(e);
+    this.ctx = this.animationCanvas.getContext(`2d`);
     limitLoop(this.drawSprite, 5);
   };
 
@@ -49,7 +51,7 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
 
   if (screenshotTaken) {
     return (
-      <canvas id='canvas3' className='hiddencanvas' width='500' height='400' ref={this.handleDrawSprite}></canvas>
+      <canvas id='canvas3' onClick={this.handleDrawSprite} width='500' height='400' ref={c => { this.animationCanvas = c; }}></canvas>
     );
   } else {
     return (
