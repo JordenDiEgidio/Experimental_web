@@ -17,8 +17,7 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
 
   this.drawSprite = () => {
     const myImage = new Image();
-    // myImage.src = `../../assets/sprites/${sprite}_sprite.png`;
-    myImage.src = `../../assets/sprites/sun_sprite.png`;
+    myImage.src = `../../assets/sprites/${sprite}_sprite.png`;
 
     this.ctx.clearRect(0, 0, 226, 300);
     this.ctx.drawImage(myImage, shiftImage, 0, frameWidth, frameHeight, 120, 25, frameWidth, frameHeight);
@@ -49,7 +48,7 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
 
   if (screenshotTaken) {
     return (
-      <canvas id='canvas3' className='hiddencanvas' width='500' height='400' ref={this.handleDrawSprite}></canvas>
+      <canvas id='canvas3' className='hiddencanvas' width='500' height='400' ref={c => { this.animationCanvas = c; }}></canvas>
     );
   } else {
     return (
