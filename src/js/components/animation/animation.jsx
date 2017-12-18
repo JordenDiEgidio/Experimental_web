@@ -51,7 +51,10 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
 
   if (screenshotTaken) {
     return (
-      <canvas id='canvas3' onClick={this.handleDrawSprite} width='500' height='400' ref={c => { this.animationCanvas = c; }}></canvas>
+      <div>
+        <canvas id='canvas3' width='500' height='400' className='hiddencanvas' ref={c => { this.animationCanvas = c; }}></canvas>
+        <button onClick={this.handleDrawSprite}>show smart animation</button>
+      </div>
     );
   } else {
     return (
