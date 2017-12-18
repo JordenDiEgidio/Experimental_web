@@ -9,6 +9,12 @@ export class Animation extends Component {
     super(props);
     this.state = {};
   }
+
+  handleDrawSprite (e) {
+    this.ctx = e.getContext(`2d`);
+    this.limitLoop(this.drawSprite, 5);
+  }
+
   limitLoop(fn, fps) {
     let then = new Date().getTime();
     fps = fps || 5;
@@ -58,7 +64,7 @@ export class Animation extends Component {
     // console.log(`de sprite is :${  this.props.sprite}`);
 
     return (
-      <canvas id='canvas3' className='hiddencanvas' width='500' height='400' ref={c => { this.animationCanvas = c; }}></canvas>
+      <canvas id='canvas3' className='hiddencanvas' width='500' height='400' ref={this.handleDrawSprite}></canvas>
     );
 
   }
