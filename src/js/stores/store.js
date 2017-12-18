@@ -135,10 +135,12 @@ class Store {
 
   @action
   test = image => {
-    visionAPI.read(image)
-      // .then(data => console.log(data.responses[0].labelAnnotations));
-      .then(data => this.addLabels(data.responses[0].labelAnnotations));
+    console.log(image);
+    console.log(visionAPI);
 
+    // visionAPI.read(image)
+    //   // .then(data => console.log(data.responses[0].labelAnnotations));
+    //   .then(data => this.addLabels(data.responses[0].labelAnnotations));
   }
 
   @action

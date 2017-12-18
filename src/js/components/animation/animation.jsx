@@ -5,7 +5,9 @@ import {observer, inject} from "mobx-react";
 const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, currentFrame, totalFrames}) => {
 
   const myImage = new Image();
-  myImage.src = `../../assets/sprites/rain_sprite2.png`;
+  myImage.src = `../../assets/sprites/star_sprite.png`;
+  //myImage.src = `../../assets/sprites/thunder_sprite.png`;
+  //myImage.src = `../../assets/sprites/rain_sprite2.png`;
   //myImage.src = `../../assets/sprites/sun_sprite.png`;
 
   this.ctx;
