@@ -1,15 +1,13 @@
 import React from 'react';
-import {bool, number} from "prop-types";
+import {bool, number, string} from "prop-types";
 import {observer, inject} from "mobx-react";
 
-const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, currentFrame, totalFrames}) => {
+const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, currentFrame, totalFrames, sprite}) => {
 
-  const myImage = new Image();
-  myImage.src = `../../assets/sprites/star_sprite.png`;
   //myImage.src = `../../assets/sprites/thunder_sprite.png`;
   //myImage.src = `../../assets/sprites/rain_sprite2.png`;
   //myImage.src = `../../assets/sprites/sun_sprite.png`;
-
+  console.log(`de sprite is :${  sprite}`);
   this.ctx;
 
   this.handleDrawSprite = e => {
@@ -18,6 +16,10 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
   };
 
   this.drawSprite = () => {
+    const myImage = new Image();
+    // myImage.src = `../../assets/sprites/${sprite}_sprite.png`;
+    myImage.src = `../../assets/sprites/sun_sprite.png`;
+
     this.ctx.clearRect(0, 0, 226, 300);
     this.ctx.drawImage(myImage, shiftImage, 0, frameWidth, frameHeight, 120, 25, frameWidth, frameHeight);
     shiftImage += frameWidth + 1;
@@ -62,7 +64,8 @@ animation.propTypes = {
   frameWidth: number.isRequired,
   frameHeight: number.isRequired,
   currentFrame: number.isRequired,
-  totalFrames: number.isRequired
+  totalFrames: number.isRequired,
+  sprite: string.isRequired
 };
 
 export default inject(({store}) => {
@@ -72,6 +75,7 @@ export default inject(({store}) => {
     frameWidth: store.frameWidth,
     frameHeight: store.frameHeight,
     currentFrame: store.currentFrame,
-    totalFrames: store.totalFrames
+    totalFrames: store.totalFrames,
+    sprite: store.sprite
   };
 })(observer(animation));

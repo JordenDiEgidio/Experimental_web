@@ -17,6 +17,9 @@ class Store {
   gifFrames = []
 
   @observable
+  sprite = `star`
+
+  @observable
   sprites = `../../assets/sprites/rain_cloud/rain_sprite2.png`;
 
   @observable
@@ -109,13 +112,31 @@ class Store {
   }
 
   @action
+  addSpriteData = (...data) => {
+    if (data[0][0][`angerLikelihood`] !== `VERY_UNLIKELY`) {
+      this.sprite = `thunder`;
+    } else if (data[0][0][`joyLikelihood`] !== `VERY_UNLIKELY`) {
+      this.sprite = `sun`;
+    } else if (data[0][0][`sorrowLikelihood`] !== `VERY_UNLIKELY`) {
+      this.sprite = `rain`;
+    } else if (data[0][0][`surpriseLikelihood`] !== `VERY_UNLIKELY`) {
+      this.sprite = `star`;
+    }
+    console.log(this.sprite);
+
+  }
+
+  @action
   test = image => {
     console.log(image);
     console.log(visionAPI);
 
-    // visionAPI.read(image)
-    //   // .then(data => console.log(data.responses[0].labelAnnotations));
-    //   .then(data => this.addLabels(data.responses[0].labelAnnotations));
+    visionAPI.read(image)
+      .then(data => {
+        if (data.responses[0].faceAnnotations) {
+          this.addSpriteData(data.responses[0].faceAnnotations);
+        }});
+    // .then(data => this.addLabels(data.responses[0].labelAnnotations));
   }
 
   @action

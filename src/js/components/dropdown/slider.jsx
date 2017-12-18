@@ -28,6 +28,7 @@ const dropdown = ({setAmount, screenshotTaken, filter}) => {
   } else {
     return (
       <form>
+        <h2>Filter intensity</h2>
         <input type='range' onChange={this.handleSliders} ref={this.handleAmount} max='1' min='0.10' step='0.01' />
       </form>
     );

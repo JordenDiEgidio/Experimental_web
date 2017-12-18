@@ -129,7 +129,7 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
       <canvas id='canvas1' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
       <canvas id='canvas2' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
       <canvas id='allcanvases' width={canvasWidth} height={canvasHeight} ref={c => { this.finalCanvas = c; }}></canvas>
-      <button onClick={this.handleClick}>Download a snapshot</button>
+      <a className='big-button' onClick={this.handleClick}>Download a snapshot</a>
     </div>
   );
 };
