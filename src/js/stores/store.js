@@ -100,39 +100,6 @@ class Store {
     this.textColor = selectedColor;
   }
 
-
-
-  // @action
-  // drawSprite = () => {
-  //   const canvas = this.canvas2;
-  //   const ctx = canvas.getContext(`2d`);
-  //
-  //   const myImage = new Image();
-  //   myImage.src = `../../assets/sprites/rain_sprite2.png`;
-  //
-  //   let shiftImage = this.shiftImage;
-  //   const frameWidth = this.frameWidth;
-  //   const frameHeight = this.frameHeight;
-  //   const totalFrames = this.totalFrames;
-  //   let currentFrame = this.currentFrame;
-  //   //console.log(this.frameWidth);
-  //   myImage.onload = function() {
-  //     ctx.clearRect(0, 0, 226, 300); //this.shiftt, 0, this.frameWidth, this.frameHeight, 120, 25, this.frameWidth, this.frameHeight)
-  //     //console.log(shiftImage);
-  //     ctx.drawImage(myImage, shiftImage, 0, frameWidth, frameHeight, 120, 25, frameWidth, frameHeight);
-  //     shiftImage += frameWidth + 1;
-  //     //console.log(shiftImage);
-  //     //console.log(ctx.drawImage(myImage, this.shiftt, 0, this.frameWidth, this.frameHeight, 120, 25, this.frameWidth, this.frameHeight));
-  //     if (currentFrame === totalFrames) {
-  //       shiftImage = 0;
-  //       currentFrame = 0;
-  //     }
-  //     currentFrame ++;
-  //   };
-  // }
-
-
-
   @action
   test = image => {
     console.log(image);

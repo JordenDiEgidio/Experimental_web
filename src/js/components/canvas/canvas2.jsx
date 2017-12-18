@@ -74,6 +74,17 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
   myImage.src = `../../assets/sprites/rain_sprite2.png`;
   this.ctx;
 
+  this.handleClick = () => {
+    const url = this.finalCanvas.toDataURL(``);
+    console.log(url);
+    const link = document.createElement(`a`);
+    link.download = `Gif`;
+    link.href = url;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    //delete link;
+  };
 
 
   if (screenshotTaken) {
@@ -90,7 +101,7 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
       <canvas id='canvas1' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
       <canvas id='canvas2' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
       <canvas id='allcanvases' width={canvasWidth} height={canvasHeight} ref={c => { this.finalCanvas = c; }}></canvas>
-
+      <button onClick={this.handleClick}>Download a snapshot</button>
     </div>
   );
 };

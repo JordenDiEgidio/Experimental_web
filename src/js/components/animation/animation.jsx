@@ -56,37 +56,6 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
   }
 };
 
-  // const myImage = new Image();
-  // myImage.src = `../../assets/sprites/rain_sprite2.png`;
-  // //console.log(shift);
-  //
-  // this.drawSprite = () => {
-  //   const canvas = this.canvas2;
-  //   const ctx = canvas.getContext(`2d`);
-  //
-  //   //console.log(this.frameWidth);
-  //   myImage.onload = function() {
-  //     ctx.clearRect(0, 0, 226, 300); //this.shiftt, 0, this.frameWidth, this.frameHeight, 120, 25, this.frameWidth, this.frameHeight)
-  //     //console.log(shiftImage);
-  //   //   ctx.drawImage(myImage, shiftImage, 0, frameWidth, frameHeight, 120, 25, frameWidth, frameHeight);
-  //   //   shiftImage += frameWidth + 1;
-  //   //   //console.log(shiftImage);
-  //   //   //console.log(ctx.drawImage(myImage, this.shiftt, 0, this.frameWidth, this.frameHeight, 120, 25, this.frameWidth, this.frameHeight));
-  //   //   if (currentFrame === totalFrames) {
-  //   //     shiftImage = 0;
-  //   //     currentFrame = 0;
-  //   //   }
-  //   //   currentFrame ++;
-  //   // };
-  //   };
-  //
-  //
-  //   this.handleDrawSprite = () => {
-  //     console.log(`anim canvas`);
-  //   };
-
-
-
 animation.propTypes = {
   screenshotTaken: bool.isRequired,
   shiftImage: number.isRequired,
