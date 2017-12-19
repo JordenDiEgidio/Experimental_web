@@ -3,6 +3,8 @@
 
 /* stylelint-disable */
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 /* stylelint-enable */
 
 html {
@@ -32,6 +34,15 @@ h2 {
   margin: 1.5rem 0;
   text-transform: uppercase;
   color: var(--light);
+}
+
+.intro {
+  font-size: 2rem;
+  font-family: 'Roboto Mono', monospace;
+  width: 40rem;
+  margin-left: 2rem;
+  color: white;
+  padding: 2rem;
 }
 
 .title {

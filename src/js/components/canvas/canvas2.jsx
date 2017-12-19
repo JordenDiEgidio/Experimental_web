@@ -3,7 +3,7 @@ import {bool, string, number, func, object} from "prop-types";
 import {observer, inject} from 'mobx-react';
 import gifshot from 'gifshot';
 
-const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, filterAmount, addGifFrame, gifFrames}) => {
+const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, filterAmount, addGifFrame, gifFrames, tick}) => {
   let canvasWidth = 0;
   let canvasHeight = 0;
 
@@ -52,20 +52,21 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     ctx.drawImage(can3, 0, 0);
     ctx.drawImage(can3, 100, 0);
     ctx.drawImage(can3, 200, 0);
-    ctx.font = `48px bold`;
+    ctx.font = `50px Roboto`;
     ctx.textAlign = `center`;
     ctx.fillStyle = textColor;
     ctx.fillText(selectedLabel, 250, 300);
+    console.log(tick);
 
 
-
-    requestAnimationFrame(combinecanvas);
+    // requestAnimationFrame(combinecanvas);
 
   };
 
   const drawImage = () => {
     const ctx = this.canvas123.getContext(`2d`);
     const img = new Image();
+
     // ctx.drawImage(img, 0, 0);
 
     img.onload = function() {
@@ -83,6 +84,8 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     const gifshotArray = gifFrames.slice(- 10);
 
     gifshot.createGIF({
+      gifWidth: 500,
+      gifHeight: 400,
       images: [
         gifshotArray[0],
         gifshotArray[1],
@@ -93,15 +96,15 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
         gifshotArray[6],
         gifshotArray[7],
         gifshotArray[8],
-        gifshotArray[9],
+        gifshotArray[9]
 
       ],
     }, function(obj) {
       if (!obj.error) {
-        const image = obj.image,
-          animatedImage = document.createElement(`img`);
-        animatedImage.src = image;
-        document.body.appendChild(animatedImage);
+        const image = obj.image;
+        const url = image.replace(/^data:image\/[^;]+/, `data:application/octet-stream`);
+        window.open(url);
+        // document.body.appendChild(animatedImage);
       }
     });
 
@@ -155,7 +158,9 @@ canvas2.propTypes = {
   filter: string.isRequired,
   filterAmount: number.isRequired,
   addGifFrame: func.isRequired,
-  gifFrames: object.isRequired
+  gifFrames: object.isRequired,
+  tick: number.isRequired
+
 
 
 };
@@ -176,7 +181,9 @@ export default inject(({store}) => {
     filter: store.filter,
     filterAmount: store.filterAmount,
     addGifFrame: store.addGifFrame,
-    gifFrames: store.gifFrames
+    gifFrames: store.gifFrames,
+    tick: store.tick
+
 
   };
 })(observer(canvas2));

@@ -1,8 +1,8 @@
 import React from 'react';
-import {bool, number, string} from "prop-types";
+import {bool, number, string, func} from "prop-types";
 import {observer, inject} from "mobx-react";
 
-const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, currentFrame, totalFrames, sprite}) => {
+const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, currentFrame, totalFrames, sprite, setTick}) => {
 
   //myImage.src = `../../assets/sprites/thunder_sprite.png`;
   //myImage.src = `../../assets/sprites/rain_sprite2.png`;
@@ -10,11 +10,18 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
   console.log(`de sprite is :${  sprite}`);
   this.ctx;
 
+
+
   this.handleDrawSprite = e => {
     console.log(this.animationCanvas);
     console.log(e);
     this.ctx = this.animationCanvas.getContext(`2d`);
     limitLoop(this.drawSprite, 5);
+  };
+
+  const handleTick = now => {
+    console.log(`tick`);
+    setTick(now);
   };
 
   this.drawSprite = () => {
@@ -30,6 +37,8 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
       currentFrame = 0;
     }
     currentFrame ++;
+    handleTick(currentFrame);
+
   };
 
   const limitLoop = function (fn, fps) {
@@ -71,7 +80,8 @@ animation.propTypes = {
   frameHeight: number.isRequired,
   currentFrame: number.isRequired,
   totalFrames: number.isRequired,
-  sprite: string.isRequired
+  sprite: string.isRequired,
+  setTick: func.isRequired
 };
 
 export default inject(({store}) => {
@@ -82,6 +92,7 @@ export default inject(({store}) => {
     frameHeight: store.frameHeight,
     currentFrame: store.currentFrame,
     totalFrames: store.totalFrames,
-    sprite: store.sprite
+    sprite: store.sprite,
+    setTick: store.setTick
   };
 })(observer(animation));

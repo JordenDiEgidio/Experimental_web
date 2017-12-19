@@ -11,6 +11,9 @@ class Store {
   name = `GIF generator`
 
   @observable
+  tick = 0
+
+  @observable
   textColor = `#FF0000`
 
   @observable
@@ -23,10 +26,10 @@ class Store {
   sprites = `../../assets/sprites/rain_cloud/rain_sprite2.png`;
 
   @observable
-  labels = [`test`]
+  labels = []
 
   @observable
-  selectedLabel = `Deviner`
+  selectedLabel = ``
 
   @observable
   screenshotTaken = false;
@@ -113,6 +116,11 @@ class Store {
   @action
   setSelectedColor = selectedColor => {
     this.textColor = selectedColor;
+  }
+
+  @action
+  setTick = tick => {
+    this.tick = tick;
   }
 
   @action

@@ -16,7 +16,7 @@ const Home = ({screenshotTaken}) => {
     console.log(`het eerste`);
     return (
       <main className='gif-generator'>
-        <h1 className='title'>The Gifmaker</h1>
+        <h1 className='title'>The smart gifmaker</h1>
         <Animation />
         <Canvas2 />
         <Textfilter />
@@ -32,6 +32,7 @@ const Home = ({screenshotTaken}) => {
         <h1 className='title'>The Gifmaker</h1>
         <Canvas2 />
         <Webcam />
+        <p className='intro'>Make a smart gif based on your emotions using machine learning, you can also use WebGL filters to make it even more stunning. Made with ReactJS, Google Vision, Seriously.js and Gifshot</p>
 
       </main>
     );
