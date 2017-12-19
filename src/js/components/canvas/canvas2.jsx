@@ -118,7 +118,9 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
       ],
     }, function(obj) {
       if (!obj.error) {
-        const image = obj.image;
+        const image = obj.image,
+          animatedImage = document.createElement(`img`);
+        animatedImage.src = image;
         const url = image.replace(/^data:image\/[^;]+/, `data:application/octet-stream`);
         window.open(url);
         // document.body.appendChild(animatedImage);
