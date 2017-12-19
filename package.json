@@ -67,6 +67,8 @@
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
-    "gl-react": "alpha"
+    "gl-react": "alpha",
+    "hapi": "^17.1.1",
+    "inert": "^5.0.1"
   }
 }
