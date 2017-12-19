@@ -3,7 +3,7 @@ const Hapi = require('hapi');
 const Inert = require('inert');
 
 const server = new Hapi.Server({
-    port: process.env.PORT,
+    port: 3000,
     routes: {
         files: {
             relativeTo: Path.join(__dirname, 'dist')
