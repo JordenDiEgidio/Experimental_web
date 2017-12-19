@@ -135,8 +135,11 @@ class Store {
       .then(data => {
         if (data.responses[0].faceAnnotations) {
           this.addSpriteData(data.responses[0].faceAnnotations);
-        }});
-    // .then(data => this.addLabels(data.responses[0].labelAnnotations));
+          this.addLabels(data.responses[0].labelAnnotations);
+        } else {
+          this.addLabels(data.responses[0].labelAnnotations);
+        }
+      });
   }
 
   @action

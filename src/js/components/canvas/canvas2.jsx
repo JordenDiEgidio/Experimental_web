@@ -50,6 +50,10 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     ctx.drawImage(can3, 0, 0);
     ctx.drawImage(can3, 100, 0);
     ctx.drawImage(can3, 200, 0);
+    ctx.font = `48px bold`;
+    ctx.textAlign = `center`;
+    ctx.fillStyle = textColor;
+    ctx.fillText(selectedLabel, 250, 300);
 
 
 
@@ -65,10 +69,6 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     img.onload = function() {
       console.log(`load`);
       ctx.drawImage(img, 0, 0);
-      ctx.font = `48px bold`;
-      ctx.textAlign = `center`;
-      ctx.fillStyle = textColor;
-      ctx.fillText(selectedLabel, 250, 300);
     };
     img.src = canvasSrc;
   };
