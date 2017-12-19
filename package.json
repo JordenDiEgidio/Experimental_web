@@ -68,6 +68,7 @@
   },
   "dependencies": {
     "gl-react": "alpha",
-    "hapi": "^17.1.1"
+    "hapi": "^17.1.1",
+    "inert": "^5.0.1"
   }
 }
