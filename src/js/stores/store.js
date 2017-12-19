@@ -134,9 +134,10 @@ class Store {
     visionAPI.read(image)
       .then(data => {
         if (data.responses[0].faceAnnotations) {
+          this.addLabels(data.responses[0].labelAnnotations),
           this.addSpriteData(data.responses[0].faceAnnotations);
         }});
-    // .then(data => this.addLabels(data.responses[0].labelAnnotations));
+    //.then(data => this.addLabels(data.responses[0].labelAnnotations));
   }
 
   @action
