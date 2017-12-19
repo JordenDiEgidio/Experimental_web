@@ -137,17 +137,27 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
 
     canvasWidth = 500;
     canvasHeight = 400;
-    console.log(canvasWidth, canvasHeight);
   }
 
-  return (
-    <div className='testcanvas'>
-      <canvas id='canvas1' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
-      <canvas id='canvas2' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
-      <canvas id='allcanvases' width={canvasWidth} height={canvasHeight} ref={c => { this.finalCanvas = c; }}></canvas>
-      <a className='big-button' onClick={this.handleClick}>Download a snapshot</a>
-    </div>
-  );
+  if (screenshotTaken) {
+    return (
+      <div className='testcanvas'>
+        <canvas id='canvas1' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
+        <canvas id='canvas2' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
+        <canvas id='allcanvases' width={canvasWidth} height={canvasHeight} ref={c => { this.finalCanvas = c; }}></canvas>
+        <a className='big-button' onClick={this.handleClick}>Download a snapshot</a>
+      </div>
+    );
+  } else {
+    return (
+      <div className='testcanvas'>
+        <canvas id='canvas1' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvas123 = c; }}></canvas>
+        <canvas id='canvas2' className='hiddencanvas' width={canvasWidth} height={canvasHeight} ref={c => { this.canvasfilter = c; }}></canvas>
+        <canvas id='allcanvases' width={canvasWidth} height={canvasHeight} ref={c => { this.finalCanvas = c; }}></canvas>
+      </div>
+    );
+  }
+
 };
 
 canvas2.propTypes = {
