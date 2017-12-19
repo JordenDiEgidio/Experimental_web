@@ -8,64 +8,60 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
   let canvasHeight = 0;
 
   const seriouslyCallback = Seriously => {
-  //  console.log(filterAmount);
-    const seriously = new Seriously();
-    const target = seriously.target(this.canvasfilter);
-    const sepiafilter = seriously.effect(filter);
-    //const sepiafilter = seriously.effect(`sepia`);
-    const src = seriously.source(this.canvas123);
-    sepiafilter.source = src;
-    target.source = sepiafilter;
+    if (!this.seriously) {
+      this.seriously = new Seriously();
+      console.log(`new seriously`);
+    }
+
+    if (!this.target) {
+      this.target = this.seriously.target(this.canvasfilter);
+    }
+    // const target = this.seriously.target(this.canvasfilter);
+    const sepiafilter = this.seriously.effect(filter);
+
+    if (!this.src) {
+      this.src = this.seriously.source(this.canvas123);
+    }
+    //  const src = this.seriously.source(this.canvas123);
+    sepiafilter.source = this.src;
+    this.target.source = sepiafilter;
     sepiafilter.amount = filterAmount;
-    seriously.go();
+    this.seriously.go();
     combinecanvas();
   };
 
   this.filters = () => {
-    //console.log(filter);
     require([
       `../../lib/effects/seriously`,
       `../../lib/effects/seriously.${filter}`
-      // `../../lib/effects/seriously.directionblur`,
-      // `../../lib/effects/seriously.emboss`,
     ], seriouslyCallback);
   };
 
   const combinecanvas = () => {
-    //const can1 = document.getElementById(`canvas1`);
     const can2 = document.getElementById(`canvas2`);
     const can3 = document.getElementById(`canvas3`);
 
-    const ctx = this.finalCanvas.getContext(`2d`);
+    if (!this.ctx) {
+      this.ctx = this.finalCanvas.getContext(`2d`);
+      console.log(`getContext`);
+    }
     addGifFrame(this.finalCanvas.toDataURL());
-
-    //console.log(can1);
-    // console.log(can2);
-    // console.log(can3);
-    // console.log(ctx);
-    ctx.clearRect(0, 0, 226, 300);
-    ctx.drawImage(can2, 0, 0);
-    //ctx.globalAlpha = 0.2;
-    //ctx.fillStyle = `rgba(0, 0, 200, 0)`;
-    ctx.drawImage(can3, 0, 0);
-    ctx.drawImage(can3, 100, 0);
-    ctx.drawImage(can3, 200, 0);
-    ctx.font = `48px bold`;
-    ctx.textAlign = `center`;
-    ctx.fillStyle = textColor;
-    ctx.fillText(selectedLabel, 250, 300);
-
-
+    this.ctx.clearRect(0, 0, 226, 300);
+    this.ctx.drawImage(can2, 0, 0);
+    this.ctx.drawImage(can3, 0, 0);
+    this.ctx.drawImage(can3, 100, 0);
+    this.ctx.drawImage(can3, 200, 0);
+    this.ctx.font = `48px bold`;
+    this.ctx.textAlign = `center`;
+    this.ctx.fillStyle = textColor;
+    this.ctx.fillText(selectedLabel, 250, 300);
 
     requestAnimationFrame(combinecanvas);
-
   };
 
   const drawImage = () => {
     const ctx = this.canvas123.getContext(`2d`);
     const img = new Image();
-    // ctx.drawImage(img, 0, 0);
-
     img.onload = function() {
       console.log(`load`);
       ctx.drawImage(img, 0, 0);
@@ -78,7 +74,7 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
   this.ctx;
 
   this.handleClick = () => {
-    const gifshotArray = gifFrames.slice(- 10);
+    const gifshotArray = gifFrames.slice(- 60);
 
     gifshot.createGIF({
       images: [
@@ -92,7 +88,37 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
         gifshotArray[7],
         gifshotArray[8],
         gifshotArray[9],
-
+        gifshotArray[10],
+        gifshotArray[11],
+        gifshotArray[12],
+        gifshotArray[13],
+        gifshotArray[14],
+        gifshotArray[15],
+        gifshotArray[16],
+        gifshotArray[17],
+        gifshotArray[18],
+        gifshotArray[19],
+        gifshotArray[20],
+        gifshotArray[21],
+        gifshotArray[22],
+        gifshotArray[23],
+        gifshotArray[24],
+        gifshotArray[25],
+        gifshotArray[26],
+        gifshotArray[27],
+        gifshotArray[28],
+        gifshotArray[29],
+        gifshotArray[30],
+        gifshotArray[31],
+        gifshotArray[32],
+        gifshotArray[33],
+        gifshotArray[34],
+        gifshotArray[35],
+        gifshotArray[36],
+        gifshotArray[37],
+        gifshotArray[38],
+        gifshotArray[39],
+        gifshotArray[40],
       ],
     }, function(obj) {
       if (!obj.error) {
@@ -102,16 +128,6 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
         document.body.appendChild(animatedImage);
       }
     });
-
-    // const url = this.finalCanvas.toDataURL(``);
-    // console.log(url);
-    // const link = document.createElement(`a`);
-    // link.download = `Gif`;
-    // link.href = url;
-    // document.body.appendChild(link);
-    // link.click();
-    // document.body.removeChild(link);
-    //delete link;
   };
 
 

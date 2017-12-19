@@ -9,7 +9,6 @@ const canvasAdd = ({setCanvas, setCanvas2, drawImage, screenshotTaken, filter, f
     const seriously = new Seriously();
     const target = seriously.target(`#canvas2`);
     const sepiafilter = seriously.effect(filter);
-    //const sepiafilter = seriously.effect(`sepia`);
     const src = seriously.source(`#canvas`);
     sepiafilter.source = src;
     target.source = sepiafilter;
@@ -26,13 +25,6 @@ const canvasAdd = ({setCanvas, setCanvas2, drawImage, screenshotTaken, filter, f
       // `../../lib/effects/seriously.emboss`,
     ], seriouslyCallback);
   };
-
-  // const drawText = () => {
-  //   const canvas3 = document.getElementById(`canvas2`);
-  //   const ctx = canvas3.getContext(`2d`);
-  //   ctx.font = `40px Courier`;
-  //   ctx.fillText(`test`, 210, 75);
-  // };
 
   if (screenshotTaken === true) {
     drawImage();
@@ -54,7 +46,6 @@ const canvasAdd = ({setCanvas, setCanvas2, drawImage, screenshotTaken, filter, f
     <div>
       <canvas id='canvas' className='canvas' width='500' height='400' ref={this.handledrawImage}></canvas>
       <canvas id='canvas2' width='500' height='400'></canvas>
-      {/* <canvas id='canvas3' width='500' height='400' ref={this.handledrawSprite}></canvas> */}
     </div>
   );
 
