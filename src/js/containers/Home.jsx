@@ -24,7 +24,8 @@ const Home = ({screenshotTaken}) => {
         <h1 className='title'>The smart Gifmaker</h1>
         <Canvas2 />
         <Webcam />
-        <p className='intro'>Make a smart gif based on your emotions using machine learning, you can also use WebGL filters to make it even more stunning. Made with ReactJS, Google Vision, Seriously.js and Gifshot</p>
+        <p className='intro'>Make a smart gif based on your emotions using machine learning, you can also use WebGL filters to make it even more stunning. Made with ReactJS, Google Vision, Seriously.js and Gifshot. <br /> <br /> Browser requirements : Google Chrome, JavaScript, WebGL, Webcam</p>
+
       </main>
     );
   }
