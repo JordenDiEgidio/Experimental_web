@@ -26,10 +26,10 @@ class Store {
   sprites = `../../assets/sprites/rain_cloud/rain_sprite2.png`;
 
   @observable
-  labels = [`test`]
+  labels = []
 
   @observable
-  selectedLabel = `Deviner`
+  selectedLabel = ``
 
   @observable
   screenshotTaken = false;
@@ -116,6 +116,11 @@ class Store {
   @action
   setSelectedColor = selectedColor => {
     this.textColor = selectedColor;
+  }
+
+  @action
+  setTick = tick => {
+    this.tick = tick;
   }
 
   @action

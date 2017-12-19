@@ -30,7 +30,6 @@ const dropdown = ({screenshotTaken, setFilter}) => {
             <option value='blur'>blur</option>
             <option value='colorcomplements'>colorcomplements</option>
             <option value='emboss'>emboss</option>
-            <option value='fader'>fader</option>
             <option value='filmgrain'>filmgrain</option>
             <option value='noise'>noise</option>
             <option value='tvglitch'>tvglitch</option>
