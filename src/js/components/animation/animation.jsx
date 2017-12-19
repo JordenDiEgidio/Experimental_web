@@ -19,8 +19,8 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
 
   this.drawSprite = () => {
     const myImage = new Image();
-    // myImage.src = `../../assets/sprites/${sprite}_sprite.png`;
-    myImage.src = `../../assets/sprites/sun_sprite.png`;
+    myImage.src = `../../assets/sprites/${sprite}_sprite.png`;
+    // myImage.src = `../../assets/sprites/sun_sprite.png`;
 
     this.ctx.clearRect(0, 0, 226, 300);
     this.ctx.drawImage(myImage, shiftImage, 0, frameWidth, frameHeight, 120, 25, frameWidth, frameHeight);
@@ -51,9 +51,10 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
 
   if (screenshotTaken) {
     return (
-      <div>
+      <div className='smart-animation'>
+        <a className='big-button' onClick={this.handleDrawSprite}>show smart animation</a>
+
         <canvas id='canvas3' width='500' height='400' className='hiddencanvas' ref={c => { this.animationCanvas = c; }}></canvas>
-        <button onClick={this.handleDrawSprite}>show smart animation</button>
       </div>
     );
   } else {

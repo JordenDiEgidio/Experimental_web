@@ -127,6 +127,7 @@ class Store {
       this.sprite = `star`;
     }
     console.log(this.sprite);
+    console.log(data[0][0]);
 
   }
 

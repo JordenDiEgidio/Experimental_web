@@ -80,6 +80,11 @@ h2 {
   margin-top: 2rem;
 }
 
+.smart-animation {
+  width: 96rem;
+  margin-bottom: 2rem;
+}
+
 .big-button {
   border: solid 2px white;
   border-radius: 5px;
@@ -98,6 +103,7 @@ h2 {
   color: white;
   text-transform: uppercase;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .color-group {

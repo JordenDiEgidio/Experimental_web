@@ -17,10 +17,10 @@ const Home = ({screenshotTaken}) => {
     return (
       <main className='gif-generator'>
         <h1 className='title'>The Gifmaker</h1>
+        <Animation />
         <Canvas2 />
         <Textfilter />
 
-        <Animation />
 
 
       </main>
