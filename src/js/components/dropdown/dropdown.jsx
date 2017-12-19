@@ -22,6 +22,7 @@ const dropdown = ({screenshotTaken, setFilter}) => {
   } else {
     return (
       <form>
+        <h2>WebGL image filter</h2>
         <select ref={this.handleFilters} onChange={this.handleChange}>
           <optgroup label='adjustable'>
             <option value='directionblur'>Directional blur</option>

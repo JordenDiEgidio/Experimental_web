@@ -2,6 +2,10 @@ import {observable, action} from 'mobx';
 import visionAPI from '../lib/api/vision';
 
 class Store {
+  constructor() {
+    // this.myImage = new Image();
+    // this.myImage.src = `../../assets/sprites/rain_sprite2.png`;
+  }
 
   @observable
   name = `GIF generator`
@@ -10,10 +14,19 @@ class Store {
   textColor = `#FF0000`
 
   @observable
+  gifFrames = []
+
+  @observable
+  sprite = `star`
+
+  @observable
   sprites = `../../assets/sprites/rain_cloud/rain_sprite2.png`;
 
   @observable
   labels = [`test`]
+
+  @observable
+  selectedLabel = `Deviner`
 
   @observable
   screenshotTaken = false;
@@ -30,21 +43,27 @@ class Store {
   @observable
   filterAmount = 0;
 
-  constructor() {
-    this.myImage = new Image();
-    this.myImage.src = `/assets/sprites/rain_sprite2.png`;
-  }
+  @observable
+  shiftImage = 0;
 
-  shiftt = 0;
-  constframeWidth = 100;
+  @observable
+  frameWidth = 99;
+
+  @observable
   frameHeight = 226;
-  totalFrames = 24;
+
+  @observable
+  totalFrames = 10;
+
+  @observable
   currentFrame = 0;
+
+  @observable
+  canvasSrc = ``;
 
   @action
   setFilter = selection => {
     this.filter = selection;
-    console.log(this.filter);
   }
 
   @action
@@ -68,6 +87,15 @@ class Store {
   }
 
   @action
+  addGifFrame = frame => {
+    if (this.gifFrames.length > 60) {
+      this.gifFrames = [];
+    } else {
+      this.gifFrames.push(frame);
+    }
+  }
+
+  @action
   setStoreImgSource = src => {
     this.storeImgSource = src;
   }
@@ -78,56 +106,45 @@ class Store {
   }
 
   @action
-  drawImage = () => {
-    const canvas = this.canvas;
-    const ctx = canvas.getContext(`2d`);
-    const img = new Image();
-    img.onload = function() {
-      console.log(`load`);
-      ctx.drawImage(img, 0, 0);
-      // ctx.font = `48px bold`;
-      // ctx.fillText(`I'm very emotional`, 10, 50);
-    };
-    console.log(this.sprites);
-    img.src = this.canvasSrc;
+  setSelectedLabel = selectedLabel => {
+    this.selectedLabel = selectedLabel;
   }
 
   @action
-  drawSprite = () => {
-    //console.log(`drawing`)
-    const canvas = this.canvas2;
-    const ctx = canvas.getContext(`2d`);
-
-    //console.log(this.m yImage);
-
-    this.myImage.onload = function() {
-      console.log(`loaded`);
-      ctx.clearRect(0, 0, 226, 300);
-      ctx.drawImage(this.myImage, this.shiftt, 0, this.frameWidth, this.frameHeight, 120, 25, this.frameWidth, this.frameHeight);
-      this.shiftt += this.frameWidth + 1;
-      if (this.currentFrame === this.totalFrames) {
-        this.shiftt = 0;
-        this.currentFrame = 0;
-      }
-
-      this.currentFrame ++;
-    };
-    requestAnimationFrame(this.drawSprite);
-    //console.log(currentFrame);
-    //this.update();
+  setSelectedColor = selectedColor => {
+    this.textColor = selectedColor;
   }
 
   @action
-  update = () => {
+  addSpriteData = (...data) => {
+    if (data[0][0][`angerLikelihood`] !== `VERY_UNLIKELY`) {
+      this.sprite = `thunder`;
+    } else if (data[0][0][`joyLikelihood`] !== `VERY_UNLIKELY`) {
+      this.sprite = `sun`;
+    } else if (data[0][0][`sorrowLikelihood`] !== `VERY_UNLIKELY`) {
+      this.sprite = `rain`;
+    } else if (data[0][0][`surpriseLikelihood`] !== `VERY_UNLIKELY`) {
+      this.sprite = `star`;
+    }
+    console.log(this.sprite);
+    console.log(data[0][0]);
 
-  };
+  }
 
   @action
   test = image => {
-    visionAPI.read(image)
-      // .then(data => console.log(data.responses[0].labelAnnotations));
-      .then(data => this.addLabels(data.responses[0].labelAnnotations));
+    console.log(image);
+    console.log(visionAPI);
 
+    visionAPI.read(image)
+      .then(data => {
+        if (data.responses[0].faceAnnotations) {
+          this.addLabels(data.responses[0].labelAnnotations),
+          this.addSpriteData(data.responses[0].faceAnnotations);
+        } else {
+          this.addLabels(data.responses[0].labelAnnotations);
+        }
+      });
   }
 
   @action
@@ -141,12 +158,6 @@ class Store {
   }
 
 }
-
-const log = () => {
-  console.log(`requestAnimation`);
-};
-
-window.requestAnimationFrame(log);
 
 const store = new Store();
 

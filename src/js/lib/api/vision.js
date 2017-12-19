@@ -23,6 +23,9 @@ export default {
             {
               type: `LABEL_DETECTION`,
 
+            },
+            {
+              type: `FACE_DETECTION`,
             }
           ]
         }

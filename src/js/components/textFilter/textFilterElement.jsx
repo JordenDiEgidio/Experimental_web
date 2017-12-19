@@ -1,11 +1,29 @@
 import React from 'react';
+import {func, string} from "prop-types";
+import {observer, inject} from "mobx-react";
+const textFilterElement = ({name, setSelectedLabel}) => {
+  // const name = props[`name`];
+  const handleSelectedLabel = () => {
+    console.log(name);
+    setSelectedLabel(name);
 
-const textFilterElement = props => {
-  const name = props[`name`];
+  };
+
   return (
-    <p className='text-effect'>{name}</p>
+    <p onClick={handleSelectedLabel} className='text-effect'>{name}</p>
   );
 
 };
 
-export default textFilterElement;
+textFilterElement.propTypes = {
+  setSelectedLabel: func.isRequired,
+  name: string.isRequired
+};
+
+export default inject(
+  ({store}) => {
+    return {setSelectedLabel: store.setSelectedLabel};
+  }
+)(
+  observer(textFilterElement)
+);
