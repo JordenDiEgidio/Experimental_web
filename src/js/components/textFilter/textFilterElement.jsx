@@ -4,7 +4,6 @@ import {observer, inject} from "mobx-react";
 const textFilterElement = ({name, setSelectedLabel}) => {
   // const name = props[`name`];
   const handleSelectedLabel = () => {
-    console.log(name);
     setSelectedLabel(name);
 
   };

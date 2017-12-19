@@ -7,20 +7,14 @@ const animation = ({screenshotTaken, shiftImage, frameWidth, frameHeight, curren
   //myImage.src = `../../assets/sprites/thunder_sprite.png`;
   //myImage.src = `../../assets/sprites/rain_sprite2.png`;
   //myImage.src = `../../assets/sprites/sun_sprite.png`;
-  console.log(`de sprite is :${  sprite}`);
   this.ctx;
 
-
-
-  this.handleDrawSprite = e => {
-    console.log(this.animationCanvas);
-    console.log(e);
+  this.handleDrawSprite = () => {
     this.ctx = this.animationCanvas.getContext(`2d`);
     limitLoop(this.drawSprite, 5);
   };
 
   const handleTick = now => {
-    console.log(`tick`);
     setTick(now);
   };
 

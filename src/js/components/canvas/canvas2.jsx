@@ -57,8 +57,6 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     ctx.fillStyle = textColor;
     ctx.fillText(selectedLabel, 250, 300);
     console.log(tick);
-
-
     // requestAnimationFrame(combinecanvas);
 
   };
@@ -70,7 +68,6 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
     // ctx.drawImage(img, 0, 0);
 
     img.onload = function() {
-      console.log(`load`);
       ctx.drawImage(img, 0, 0);
     };
     img.src = canvasSrc;
@@ -160,9 +157,6 @@ canvas2.propTypes = {
   addGifFrame: func.isRequired,
   gifFrames: object.isRequired,
   tick: number.isRequired
-
-
-
 };
 
 export default inject(({store}) => {
@@ -183,7 +177,5 @@ export default inject(({store}) => {
     addGifFrame: store.addGifFrame,
     gifFrames: store.gifFrames,
     tick: store.tick
-
-
   };
 })(observer(canvas2));

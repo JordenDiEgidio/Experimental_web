@@ -33,9 +33,7 @@ export class Animation extends Component {
   }
 
   componentDidMount() {
-    console.log(`alles geladen`);
     this.limitLoop(this.drawSprite, 5);
-
   }
 
   drawSprite() {
