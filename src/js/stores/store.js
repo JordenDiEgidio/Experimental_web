@@ -140,7 +140,6 @@ class Store {
           this.addLabels(data.responses[0].labelAnnotations);
         }
       });
-=======
   }
 
   @action
