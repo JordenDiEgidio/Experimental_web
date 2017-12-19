@@ -5,7 +5,6 @@ import TextfilterElement from './textFilterElement.jsx';
 import TextColor from './textColor.jsx';
 import Dropdown from '../dropdown/dropdown.jsx';
 import Slider from '../dropdown/slider.jsx';
-
 const textFilter = ({labels}) => {
 
   if (labels.length === 0) return (
