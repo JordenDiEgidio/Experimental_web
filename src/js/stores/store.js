@@ -88,7 +88,11 @@ class Store {
 
   @action
   addGifFrame = frame => {
-    this.gifFrames.push(frame);
+    if (this.gifFrames.length > 60) {
+      this.gifFrames = [];
+    } else {
+      this.gifFrames.push(frame);
+    }
   }
 
   @action
