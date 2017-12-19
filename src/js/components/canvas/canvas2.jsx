@@ -80,7 +80,7 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
   this.ctx;
 
   this.handleClick = () => {
-    const gifshotArray = gifFrames.slice(- 10);
+    const gifshotArray = gifFrames.slice(- 30);
 
     gifshot.createGIF({
       images: [
@@ -94,14 +94,34 @@ const canvas2 = ({screenshotTaken, canvasSrc, textColor, selectedLabel, filter, 
         gifshotArray[7],
         gifshotArray[8],
         gifshotArray[9],
+        gifshotArray[10],
+        gifshotArray[11],
+        gifshotArray[12],
+        gifshotArray[13],
+        gifshotArray[14],
+        gifshotArray[15],
+        gifshotArray[16],
+        gifshotArray[17],
+        gifshotArray[18],
+        gifshotArray[19],
+        gifshotArray[20],
+        gifshotArray[21],
+        gifshotArray[22],
+        gifshotArray[23],
+        gifshotArray[24],
+        gifshotArray[25],
+        gifshotArray[26],
+        gifshotArray[27],
+        gifshotArray[28],
+        gifshotArray[29]
 
       ],
     }, function(obj) {
       if (!obj.error) {
-        const image = obj.image,
-          animatedImage = document.createElement(`img`);
-        animatedImage.src = image;
-        document.body.appendChild(animatedImage);
+        const image = obj.image;
+        const url = image.replace(/^data:image\/[^;]+/, `data:application/octet-stream`);
+        window.open(url);
+        // document.body.appendChild(animatedImage);
       }
     });
 

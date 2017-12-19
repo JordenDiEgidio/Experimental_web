@@ -11,6 +11,9 @@ class Store {
   name = `GIF generator`
 
   @observable
+  tick = 0
+
+  @observable
   textColor = `#FF0000`
 
   @observable
